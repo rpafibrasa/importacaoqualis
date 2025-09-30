@@ -1,0 +1,23 @@
+{
+    "project": {
+        "name": "Qualis2025",
+        "version": "1.0.0"
+    },
+    "database": {
+        "schema": "Qualis",
+        "logtablename": "logrec",
+        "relatprocessname": "relatorios_processo_info_runner1",
+        "databasename": "rpa_prd",
+        "tabcontroledados": "controle_execucao_runner1"
+    },
+    "test": {
+        "message": "Hello Mr",
+        "name": "Tester"
+    },
+    "folders": {
+        "folderlog": "artifacts\\logs",
+        "folderrede": "",
+        "foldercapturados": "data\\input\\Capturados",
+        "foldertemp": "data\\Temp"
+    }
+}
