@@ -1,0 +1,22 @@
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+|         TIMESTAMP         |       TASK      |            FUNCTION            |            FILE           |                       MESSAGE                      |   PROCESS_TYPE  |      STATUS     |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-02 10:11:38       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | dcConfig disponível: ['dbconnstr', 'dbschema',     | system          | information     |
+|                           |                 |                                |                           | 'projectname', 'folderlog', 'logtablename',        |                 |                 |
+|                           |                 |                                |                           | 'databasename', 'tabdocumentosged', 'url_inicial', |                 |                 |
+|                           |                 |                                |                           | 'url_api_processo', 'database']                    |                 |                 |
+| 2025-10-02 10:11:38       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | :::Processo de Conexão Iniciado:::                 | system          | information     |
+| 2025-10-02 10:11:39       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | Conectado com sucesso ao PostgreSQL: PostgreSQL    | system          | success         |
+|                           |                 |                                |                           | 17.6 on aarch64-unknown-linux-gnu, comp            |                 |                 |
+| 2025-10-02 10:11:40       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Não existe arquivo .xlsx na pasta                  | system          | critical        |
+|                           |                 |                                |                           | data\input\Capturados - LN 279 em                  |                 |                 |
+|                           |                 |                                |                           | planilha_processar.py                              |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-02 10:11:41       | IMP_DOC_QUALIS_ | Main                           | main.py                   | Planilha de Processamento não encontrada ou Vazia  | system          | critical        |
+|                           |                 |                                |                           | - LN 22 em main.py                                 |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-02 10:11:41       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | sharepoint_acesso.py      | db_manager está conectado                          | system          | information     |
+| 2025-10-02 10:11:42       | IMP_DOC_QUALIS_ | _obter_links_do_banco          | sharepoint_acesso.py      | Erro ao consultar links: name 'db' is not defined  | system          | failure         |
+|                           |                 |                                |                           | - LN 96 em sharepoint_acesso.py                    |                 |                 |
+| 2025-10-02 10:11:42       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Nenhum link encontrado para processamento          | system          | warning         |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+

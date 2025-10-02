@@ -1,0 +1,11 @@
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+|         TIMESTAMP         |       TASK      |            FUNCTION            |            FILE           |                       MESSAGE                      |   PROCESS_TYPE  |      STATUS     |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-01 15:44:15       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | dcConfig disponível: ['dbconnstr', 'dbschema',     | system          | information     |
+|                           |                 |                                |                           | 'projectname', 'folderlog', 'logtablename',        |                 |                 |
+|                           |                 |                                |                           | 'databasename', 'tabdocumentosged', 'url_inicial', |                 |                 |
+|                           |                 |                                |                           | 'url_api_processo', 'database']                    |                 |                 |
+| 2025-10-01 15:44:15       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | :::Processo de Conexão Iniciado:::                 | system          | information     |
+| 2025-10-01 15:44:17       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | Conectado com sucesso ao PostgreSQL: PostgreSQL    | system          | success         |
+|                           |                 |                                |                           | 17.6 on aarch64-unknown-linux-gnu, comp            |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+

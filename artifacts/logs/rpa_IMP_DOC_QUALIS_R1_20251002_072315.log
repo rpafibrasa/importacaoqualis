@@ -1,0 +1,871 @@
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+|         TIMESTAMP         |       TASK      |            FUNCTION            |            FILE           |                       MESSAGE                      |   PROCESS_TYPE  |      STATUS     |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-02 07:23:15       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | dcConfig disponível: ['dbconnstr', 'dbschema',     | system          | information     |
+|                           |                 |                                |                           | 'projectname', 'folderlog', 'logtablename',        |                 |                 |
+|                           |                 |                                |                           | 'databasename', 'tabdocumentosged', 'url_inicial', |                 |                 |
+|                           |                 |                                |                           | 'url_api_processo', 'database']                    |                 |                 |
+| 2025-10-02 07:23:16       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | :::Processo de Conexão Iniciado:::                 | system          | information     |
+| 2025-10-02 07:23:18       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | Conectado com sucesso ao PostgreSQL: PostgreSQL    | system          | success         |
+|                           |                 |                                |                           | 17.6 on aarch64-unknown-linux-gnu, comp            |                 |                 |
+| 2025-10-02 07:23:19       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Arquivo encontrado                                 | system          | information     |
+| 2025-10-02 07:23:20       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Nome do arquivo: Tabela - Pastas GED por           | system          | information     |
+|                           |                 |                                |                           | setor.xlsx                                         |                 |                 |
+| 2025-10-02 07:23:20       | IMP_DOC_QUALIS_ | carregardadosplanilha          | planilha_processar.py     | Carregando dados da planilha                       | system          | information     |
+|                           |                 |                                |                           | data\input\Capturados\Tabela - Pastas GED por      |                 |                 |
+|                           |                 |                                |                           | setor.xlsx                                         |                 |                 |
+| 2025-10-02 07:23:21       | IMP_DOC_QUALIS_ | carregardadosplanilha          | planilha_processar.py     | Abas encontradas: ['LINK POR UNIDADE', 'LINK POR   | system          | information     |
+|                           |                 |                                |                           | SETOR']                                            |                 |                 |
+| 2025-10-02 07:23:22       | IMP_DOC_QUALIS_ | carregardadosplanilha          | planilha_processar.py     | Processando aba: LINK POR UNIDADE                  | system          | information     |
+| 2025-10-02 07:23:22       | IMP_DOC_QUALIS_ | carregardadosplanilha          | planilha_processar.py     | Aba 'LINK POR UNIDADE' carregada com sucesso.      | system          | information     |
+|                           |                 |                                |                           | Linhas: 6, Colunas: ['Unidade', 'Tipo de           |                 |                 |
+|                           |                 |                                |                           | documento', 'Link']                                |                 |                 |
+| 2025-10-02 07:23:23       | IMP_DOC_QUALIS_ | carregardadosplanilha          | planilha_processar.py     | Processando aba: LINK POR SETOR                    | system          | information     |
+| 2025-10-02 07:23:23       | IMP_DOC_QUALIS_ | carregardadosplanilha          | planilha_processar.py     | Aba 'LINK POR SETOR' carregada com sucesso.        | system          | information     |
+|                           |                 |                                |                           | Linhas: 148, Colunas: ['Unidade', 'Setor', 'Tipo   |                 |                 |
+|                           |                 |                                |                           | de documento', 'Link']                             |                 |                 |
+| 2025-10-02 07:23:24       | IMP_DOC_QUALIS_ | carregardadosplanilha          | planilha_processar.py     | Dados carregados com sucesso de 2 aba(s)           | system          | information     |
+| 2025-10-02 07:23:25       | IMP_DOC_QUALIS_ | processar_dados_completos      | planilha_processar.py     | Processando dados de 2 aba(s)                      | system          | information     |
+| 2025-10-02 07:23:25       | IMP_DOC_QUALIS_ | processar_dados_completos      | planilha_processar.py     | Processando aba: LINK POR UNIDADE                  | system          | information     |
+| 2025-10-02 07:23:26       | IMP_DOC_QUALIS_ | processar_aba_unidade          | planilha_processar.py     | Processando 6 registros da aba LINK POR UNIDADE    | system          | information     |
+| 2025-10-02 07:23:26       | IMP_DOC_QUALIS_ | processar_aba_unidade          | planilha_processar.py     | Processados 6 registros da aba UNIDADE             | system          | information     |
+| 2025-10-02 07:23:27       | IMP_DOC_QUALIS_ | processar_dados_completos      | planilha_processar.py     | Processando aba: LINK POR SETOR                    | system          | information     |
+| 2025-10-02 07:23:27       | IMP_DOC_QUALIS_ | processar_aba_setor            | planilha_processar.py     | Processando 148 registros da aba LINK POR SETOR    | system          | information     |
+| 2025-10-02 07:23:28       | IMP_DOC_QUALIS_ | processar_aba_setor            | planilha_processar.py     | Processados 148 registros da aba SETOR             | system          | information     |
+| 2025-10-02 07:23:28       | IMP_DOC_QUALIS_ | processar_dados_completos      | planilha_processar.py     | Total de registros processados: 154                | system          | information     |
+| 2025-10-02 07:23:29       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Dados processados com sucesso: 154 registros       | system          | information     |
+| 2025-10-02 07:23:29       | IMP_DOC_QUALIS_ | _tentar_mover_arquivo          | planilha_processar.py     | Arquivo movido com sucesso:                        | system          | information     |
+|                           |                 |                                |                           | data\input\Processados\Tabela - Pastas GED por     |                 |                 |
+|                           |                 |                                |                           | setor.xlsx                                         |                 |                 |
+| 2025-10-02 07:23:30       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Arquivo processado com sucesso                     | system          | information     |
+| 2025-10-02 07:23:30       | IMP_DOC_QUALIS_ | Main                           | main.py                   | Iniciando inserção de 154 registros na tabela      | system          | information     |
+|                           |                 |                                |                           | documentos_ged                                     |                 |                 |
+| 2025-10-02 07:23:31       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-02 07:23:32       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: , Link: https://fibrasacombr. |                 |                 |
+|                           |                 |                                |                           | sharepoint.com/sites/GED/DocumentosSolicitacoes/Co |                 |                 |
+|                           |                 |                                |                           | rporativo%20-%20FICORP/01.N%C3%A3o%20Publicados    |                 |                 |
+| 2025-10-02 07:23:33       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: , Link: https://fibrasacombr. |                 |                 |
+|                           |                 |                                |                           | sharepoint.com/sites/GED/Documentos%20Compartilhad |                 |                 |
+|                           |                 |                                |                           | os/1.Corporativo%20-%20FICORP/Publicados           |                 |                 |
+| 2025-10-02 07:23:34       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: , Link: https://fibrasacombr.sharepoint.com |                 |                 |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Nordeste%20-     |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados                      |                 |                 |
+| 2025-10-02 07:23:35       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: , Link: https://fibrasacombr.sharepoint.com |                 |                 |
+|                           |                 |                                |                           | /sites/GED/Documentos%20Compartilhados/2.Nordeste% |                 |                 |
+|                           |                 |                                |                           | 20-%20FINE/Publicados                              |                 |                 |
+| 2025-10-02 07:23:36       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: , Link: https://fibrasacombr.sharepoint.com |                 |                 |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Sudeste%20-      |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados                      |                 |                 |
+| 2025-10-02 07:23:38       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: , Link: https://fibrasacombr.sharepoint.com |                 |                 |
+|                           |                 |                                |                           | /sites/GED/Documentos%20Compartilhados/3.Sudeste%2 |                 |                 |
+|                           |                 |                                |                           | 0-%20FIES/Publicados                               |                 |                 |
+| 2025-10-02 07:23:39       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: DAF, Link: https://fibrasacom |                 |                 |
+|                           |                 |                                |                           | br.sharepoint.com/sites/GED/DocumentosSolicitacoes |                 |                 |
+|                           |                 |                                |                           | /Corporativo%20-                                   |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/DAF%20-         |                 |                 |
+|                           |                 |                                |                           | %20DIRETORIA%20ADM%20FINANCEIRA                    |                 |                 |
+| 2025-10-02 07:23:40       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: EOF, Link: https://fibrasacom |                 |                 |
+|                           |                 |                                |                           | br.sharepoint.com/sites/GED/DocumentosSolicitacoes |                 |                 |
+|                           |                 |                                |                           | /Corporativo%20-                                   |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/EOF%20-         |                 |                 |
+|                           |                 |                                |                           | %20EXCELENCIA%20OPERACIONAL%20FIBRASA              |                 |                 |
+| 2025-10-02 07:23:41       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: GEPRO, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/GEPRO-          |                 |                 |
+|                           |                 |                                |                           | %20GER%C3%8ANCIA%20INDUSTRIAL                      |                 |                 |
+| 2025-10-02 07:23:42       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: PMO, Link: https://fibrasacom |                 |                 |
+|                           |                 |                                |                           | br.sharepoint.com/sites/GED/DocumentosSolicitacoes |                 |                 |
+|                           |                 |                                |                           | /Corporativo%20-                                   |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/PMO%20-         |                 |                 |
+|                           |                 |                                |                           | %20PROJECT%20MANAGEMENT%20OFFICE                   |                 |                 |
+| 2025-10-02 07:23:43       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEART, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEART%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ARTES%20GR%C3%81FICAS              |                 |                 |
+| 2025-10-02 07:23:45       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SECOM, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SECOM%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20COMERCIAL                               |                 |                 |
+| 2025-10-02 07:23:46       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEDES, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEDES%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DESENVOLVIMENTO                    |                 |                 |
+| 2025-10-02 07:23:47       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEDVP, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEDVP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DIRETORIA%20DA%20VICE%20PRESID%C3% |                 |                 |
+|                           |                 |                                |                           | 8ANCIA                                             |                 |                 |
+| 2025-10-02 07:23:48       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEENG, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEENG%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ENG.%20PROCESSO                    |                 |                 |
+| 2025-10-02 07:23:49       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEEXP, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEEXP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXPEDICAO                          |                 |                 |
+| 2025-10-02 07:23:50       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEFES, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEFER%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FERRAMENTARIA                      |                 |                 |
+| 2025-10-02 07:23:51       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEGRC, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEGRC%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20GEST%C3%83O%20DE%20RISCO%20E%20COM |                 |                 |
+|                           |                 |                                |                           | PLIANCE                                            |                 |                 |
+| 2025-10-02 07:23:53       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEIMP, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEIMP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20IMPRESSAO                          |                 |                 |
+| 2025-10-02 07:23:54       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEINJ, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEINJ%20%E2%80% |                 |                 |
+|                           |                 |                                |                           | 93%20SETOR%20DE%20INJECAO                          |                 |                 |
+| 2025-10-02 07:23:55       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEMAN, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEMAN%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MANUTENCAO                         |                 |                 |
+| 2025-10-02 07:23:56       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEPAT, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPAT%20%E2%80% |                 |                 |
+|                           |                 |                                |                           | 93%20SETOR%20DE%20ASSISTENCIA%20TECNICA            |                 |                 |
+| 2025-10-02 07:23:57       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEPCP, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPCP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PLANEJAMENTO                       |                 |                 |
+| 2025-10-02 07:23:58       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEPRC, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPRC%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20PROCESSO%20DE%20PRODU%C3%87%C3%83O      |                 |                 |
+| 2025-10-02 07:24:00       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEPRO, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPRO%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PROJETOS%20E%20DESENVOLVIMENTO     |                 |                 |
+| 2025-10-02 07:24:01       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEQUA, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEQUA%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20QUALIDADE                          |                 |                 |
+| 2025-10-02 07:24:02       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SETER, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SETER%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20TERMOFORMAGEM                      |                 |                 |
+| 2025-10-02 07:24:03       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SETRU, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/DocumentosSolicitaco |                 |                 |
+|                           |                 |                                |                           | es/Corporativo%20-                                 |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SETRU%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXTRUSAO                           |                 |                 |
+| 2025-10-02 07:24:04       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SSMA, Link: https://fibrasaco |                 |                 |
+|                           |                 |                                |                           | mbr.sharepoint.com/sites/GED/DocumentosSolicitacoe |                 |                 |
+|                           |                 |                                |                           | s/Corporativo%20-                                  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SSMA%20-        |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SEGURANCA,%20SAUDE%20E%20MEIO%20AM |                 |                 |
+|                           |                 |                                |                           | BIENTE                                             |                 |                 |
+| 2025-10-02 07:24:05       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: DAF, Link: https://fibrasacom |                 |                 |
+|                           |                 |                                |                           | br.sharepoint.com/sites/GED/Documentos%20Compartil |                 |                 |
+|                           |                 |                                |                           | hados/1.Corporativo%20-                            |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/DAF%20-                       |                 |                 |
+|                           |                 |                                |                           | %20DIRETORIA%20ADM%20FINANCEIRA                    |                 |                 |
+| 2025-10-02 07:24:07       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: EOF, Link: https://fibrasacom |                 |                 |
+|                           |                 |                                |                           | br.sharepoint.com/sites/GED/Documentos%20Compartil |                 |                 |
+|                           |                 |                                |                           | hados/1.Corporativo%20-                            |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/EOF%20-                       |                 |                 |
+|                           |                 |                                |                           | %20EXCELENCIA%20OPERACIONAL%20FIBRASA              |                 |                 |
+| 2025-10-02 07:24:08       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: GEPRO, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/GEPRO%20-                     |                 |                 |
+|                           |                 |                                |                           | %20GERENCIA%20DE%20PRODUCAO                        |                 |                 |
+| 2025-10-02 07:24:09       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: PMO, Link: https://fibrasacom |                 |                 |
+|                           |                 |                                |                           | br.sharepoint.com/sites/GED/Documentos%20Compartil |                 |                 |
+|                           |                 |                                |                           | hados/1.Corporativo%20-                            |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/PMO%20-                       |                 |                 |
+|                           |                 |                                |                           | %20PROJECT%20MANAGEMENT%20OFFICE                   |                 |                 |
+| 2025-10-02 07:24:10       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEART, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEART%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ARTES%20GR%C3%81FICAS              |                 |                 |
+| 2025-10-02 07:24:11       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SECOM, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SECOM%20-%20SETOR%20COMERCIAL |                 |                 |
+| 2025-10-02 07:24:12       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEDES, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEDES%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DESENVOLVIMENTO                    |                 |                 |
+| 2025-10-02 07:24:14       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEDVP, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEDVP-                        |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DIRETORIA%20DA%20VICE%20PRESID%C3% |                 |                 |
+|                           |                 |                                |                           | 8ANCIA                                             |                 |                 |
+| 2025-10-02 07:24:15       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEENG, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEENG%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ENG.%20PROCESSO                    |                 |                 |
+| 2025-10-02 07:24:16       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEEXP, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEEXP%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXPEDICAO                          |                 |                 |
+| 2025-10-02 07:24:17       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEFES, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEFER%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FERRAMENTARIA                      |                 |                 |
+| 2025-10-02 07:24:18       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEGRC, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEGRC-                        |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20GEST%C3%83O%20DE%20RISCO%20E%20COMPLIAN |                 |                 |
+|                           |                 |                                |                           | CE                                                 |                 |                 |
+| 2025-10-02 07:24:19       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEIMP, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEIMP%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20IMPRESSAO                          |                 |                 |
+| 2025-10-02 07:24:20       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEINJ, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEINJ%20%E2%80%93%20SEKASE%20 |                 |                 |
+|                           |                 |                                |                           | %E2%80%93%20SETOR%20DE%20INJECAO                   |                 |                 |
+| 2025-10-02 07:24:22       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEMAN, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEMAN%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MANUTENCAO                         |                 |                 |
+| 2025-10-02 07:24:23       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEPAT, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEPAT%20%E2%80%93%20SETOR%20D |                 |                 |
+|                           |                 |                                |                           | E%20ASSISTENCIA%20TECNICA                          |                 |                 |
+| 2025-10-02 07:24:24       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEPCP, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEPCP%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PLANEJAMENTO                       |                 |                 |
+| 2025-10-02 07:24:25       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEPRC, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEPRC%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20PROCESSO%20DE%20PRODU%C3%87%C3%83O      |                 |                 |
+| 2025-10-02 07:24:26       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEPRO, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEPRO%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PROJETOS%20E%20DESENVOLVIMENTO     |                 |                 |
+| 2025-10-02 07:24:27       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SEQUA, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEQUA%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20QUALIDADE                          |                 |                 |
+| 2025-10-02 07:24:29       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SETER, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SETER%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20TERMOFORMAGEM                      |                 |                 |
+| 2025-10-02 07:24:30       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SETRU, Link: https://fibrasac |                 |                 |
+|                           |                 |                                |                           | ombr.sharepoint.com/sites/GED/Documentos%20Compart |                 |                 |
+|                           |                 |                                |                           | ilhados/1.Corporativo%20-                          |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SETRU%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXTRUSAO                           |                 |                 |
+| 2025-10-02 07:24:31       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade:           | system          | success         |
+|                           |                 |                                |                           | Coorporativo, Setor: SSMA, Link: https://fibrasaco |                 |                 |
+|                           |                 |                                |                           | mbr.sharepoint.com/sites/GED/Documentos%20Comparti |                 |                 |
+|                           |                 |                                |                           | lhados/1.Corporativo%20-                           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SSMA%20-                      |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SEGURANCA,%20SAUDE%20E%20MEIO%20AM |                 |                 |
+|                           |                 |                                |                           | BIENTE                                             |                 |                 |
+| 2025-10-02 07:24:32       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: EOF, Link: https://fibrasacombr.sharepoint. |                 |                 |
+|                           |                 |                                |                           | com/sites/GED/Documentos%20Compartilhados/2.Nordes |                 |                 |
+|                           |                 |                                |                           | te%20-%20FINE/Publicados/EOF%20-                   |                 |                 |
+|                           |                 |                                |                           | %20EXCELENCIA%20OPERACIONAL%20FIBRASA              |                 |                 |
+| 2025-10-02 07:24:33       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: GEI, Link: https://fibrasacombr.sharepoint. |                 |                 |
+|                           |                 |                                |                           | com/sites/GED/Documentos%20Compartilhados/2.Nordes |                 |                 |
+|                           |                 |                                |                           | te%20-%20FINE/Publicados/GEI%20-                   |                 |                 |
+|                           |                 |                                |                           | %20GERENCIA%20INDUSTRIAL                           |                 |                 |
+| 2025-10-02 07:24:34       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: PMO, Link: https://fibrasacombr.sharepoint. |                 |                 |
+|                           |                 |                                |                           | com/sites/GED/Documentos%20Compartilhados/2.Nordes |                 |                 |
+|                           |                 |                                |                           | te%20-%20FINE/Publicados/PMO%20-                   |                 |                 |
+|                           |                 |                                |                           | %20PROJECT%20MANAGEMENT%20OFFICE                   |                 |                 |
+| 2025-10-02 07:24:36       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEART, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEART%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ARTES%20GR%C3%81FICAS              |                 |                 |
+| 2025-10-02 07:24:37       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SECOM, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SECOM%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20COMERCIAL                               |                 |                 |
+| 2025-10-02 07:24:38       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SECON, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SECON%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20CONTABILIDADE                      |                 |                 |
+| 2025-10-02 07:24:39       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEDES, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEDES%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DESENVOLVIMENTO                    |                 |                 |
+| 2025-10-02 07:24:40       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEENG, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEENG%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ENG.%20PROCESSO                    |                 |                 |
+| 2025-10-02 07:24:41       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEEXP, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEEXP%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXPEDICAO                          |                 |                 |
+| 2025-10-02 07:24:43       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEFER, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEFER%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FERRAMENTARIA                      |                 |                 |
+| 2025-10-02 07:24:44       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEFIN, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEFIN%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FINANCAS                           |                 |                 |
+| 2025-10-02 07:24:45       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEFIS, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEFIS%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20FISCAL                                  |                 |                 |
+| 2025-10-02 07:24:46       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEIMP, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEIMP%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20IMPRESSAO                          |                 |                 |
+| 2025-10-02 07:24:47       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEINF, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEINF%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20INFORMATICA                        |                 |                 |
+| 2025-10-02 07:24:48       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEINJ, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-                                           |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEINJ%20%E2%80%93%20SEKASE%20%E |                 |                 |
+|                           |                 |                                |                           | 2%80%93%20SETOR%20DE%20INJECAO%20E%20SETOR%20DA%20 |                 |                 |
+|                           |                 |                                |                           | KASE                                               |                 |                 |
+| 2025-10-02 07:24:49       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SELAM, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SELAM%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20LAMINACAO                          |                 |                 |
+| 2025-10-02 07:24:51       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SELOG, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SELOG%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20LOGISTICO                               |                 |                 |
+| 2025-10-02 07:24:52       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEMAN, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEMAN%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MANUTENCAO                         |                 |                 |
+| 2025-10-02 07:24:53       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEMAT, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEMAT%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MATERIAIS                          |                 |                 |
+| 2025-10-02 07:24:54       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEORC, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEORC%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20CUSTOS%20E%20ORCAMENTO             |                 |                 |
+| 2025-10-02 07:24:55       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEPAT, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-                                           |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEPAT%20%E2%80%93%20SETOR%20DE% |                 |                 |
+|                           |                 |                                |                           | 20ASSISTENCIA%20TECNICA                            |                 |                 |
+| 2025-10-02 07:24:56       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEPCP, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEPCP%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PLANEJAMENTO                       |                 |                 |
+| 2025-10-02 07:24:58       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEPRO, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEPRO%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PROJETOS                           |                 |                 |
+| 2025-10-02 07:24:59       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEQUA, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SEQUA%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20QUALIDADE                          |                 |                 |
+| 2025-10-02 07:25:00       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SERET, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SERET%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20RELACOES%20TRABALHISTAS            |                 |                 |
+| 2025-10-02 07:25:01       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SESUP, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SESUP%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SUPRIMENTOS                        |                 |                 |
+| 2025-10-02 07:25:02       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SETER, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SETER%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20TERMOFORMAGEM                      |                 |                 |
+| 2025-10-02 07:25:03       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SETRU, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/2.Nord |                 |                 |
+|                           |                 |                                |                           | este%20-%20FINE/Publicados/SETRU%20-               |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXTRUSAO                           |                 |                 |
+| 2025-10-02 07:25:05       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SSMA, Link: https://fibrasacombr.sharepoint |                 |                 |
+|                           |                 |                                |                           | .com/sites/GED/Documentos%20Compartilhados/2.Norde |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FINE/Publicados/SSMA%20-                 |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SEGURANCA,%20SAUDE%20E%20MEIO%20AM |                 |                 |
+|                           |                 |                                |                           | BIENTE                                             |                 |                 |
+| 2025-10-02 07:25:06       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: EOF, Link: https://fibrasacombr.sharepoint. |                 |                 |
+|                           |                 |                                |                           | com/sites/GED/DocumentosSolicitacoes/Nordeste%20-  |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/EOF%20-              |                 |                 |
+|                           |                 |                                |                           | %20EXCELENCIA%20OPERACIONAL%20FIBRASA              |                 |                 |
+| 2025-10-02 07:25:07       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: GEI, Link: https://fibrasacombr.sharepoint. |                 |                 |
+|                           |                 |                                |                           | com/sites/GED/DocumentosSolicitacoes/Nordeste%20-  |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/GEI%20-              |                 |                 |
+|                           |                 |                                |                           | %20GERENCIA%20INDUSTRIAL                           |                 |                 |
+| 2025-10-02 07:25:08       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: PMO, Link: https://fibrasacombr.sharepoint. |                 |                 |
+|                           |                 |                                |                           | com/sites/GED/DocumentosSolicitacoes/Nordeste%20-  |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/PMO%20-              |                 |                 |
+|                           |                 |                                |                           | %20PROJECT%20MANAGEMENT%20OFFICE                   |                 |                 |
+| 2025-10-02 07:25:09       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEART, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEART%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ARTES%20GR%C3%81FICAS              |                 |                 |
+| 2025-10-02 07:25:10       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SECOM, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SECOM%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20COMERCIAL                               |                 |                 |
+| 2025-10-02 07:25:12       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SECON, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SECON%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20CONTABILIDADE                      |                 |                 |
+| 2025-10-02 07:25:13       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEDES, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEDES%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DESENVOLVIMENTO                    |                 |                 |
+| 2025-10-02 07:25:14       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEENG, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEENG%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ENG.%20PROCESSO                    |                 |                 |
+| 2025-10-02 07:25:15       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEEXP, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEEXP%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXPEDICAO                          |                 |                 |
+| 2025-10-02 07:25:16       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEFER, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEFER%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FERRAMENTARIA                      |                 |                 |
+| 2025-10-02 07:25:17       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEFIN, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEFIN%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FINANCAS                           |                 |                 |
+| 2025-10-02 07:25:18       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEFIS, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEFIS%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20FISCAL                                  |                 |                 |
+| 2025-10-02 07:25:20       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEIMP, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEIMP%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20IMPRESSAO                          |                 |                 |
+| 2025-10-02 07:25:21       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEINF, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEINF%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20INFORMATICA                        |                 |                 |
+| 2025-10-02 07:25:22       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEINJ, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEINJ%20%E2%80%93%2 |                 |                 |
+|                           |                 |                                |                           | 0SEKASE%20%E2%80%93%20SETOR%20DE%20INJECAO%20E%20S |                 |                 |
+|                           |                 |                                |                           | ETOR%20DA%20KASE                                   |                 |                 |
+| 2025-10-02 07:25:23       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SELAM, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SELAM%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20LAMINACAO                          |                 |                 |
+| 2025-10-02 07:25:24       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SELOG, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SELOG%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20LOGISTICO                               |                 |                 |
+| 2025-10-02 07:25:25       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEMAN, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEMAN%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MANUTENCAO                         |                 |                 |
+| 2025-10-02 07:25:27       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEMAT, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEMAT%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MATERIAIS                          |                 |                 |
+| 2025-10-02 07:25:28       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEORC, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEORC%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20CUSTOS%20E%20ORCAMENTO             |                 |                 |
+| 2025-10-02 07:25:29       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEPAT, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEPAT%20%E2%80%93%2 |                 |                 |
+|                           |                 |                                |                           | 0SETOR%20DE%20ASSISTENCIA%20TECNICA                |                 |                 |
+| 2025-10-02 07:25:30       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEPCP, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEPCP%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PLANEJAMENTO                       |                 |                 |
+| 2025-10-02 07:25:31       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEPRO, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEPRO%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PROJETOS%20E%20DESENVOLVIMENTO     |                 |                 |
+| 2025-10-02 07:25:32       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SEQUA, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SEQUA%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20QUALIDADE                          |                 |                 |
+| 2025-10-02 07:25:34       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SERET, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SERET%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20RELACOES%20TRABALHISTAS            |                 |                 |
+| 2025-10-02 07:25:35       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SESUP, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SESUP%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SUPRIMENTOS                        |                 |                 |
+| 2025-10-02 07:25:36       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SETER, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SETER%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20TERMOFORMAGEM                      |                 |                 |
+| 2025-10-02 07:25:37       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SETRU, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Nordeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FINE/N%C3%A3o%20Publicados/SETRU%20-           |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXTRUSAO                           |                 |                 |
+| 2025-10-02 07:25:38       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Nordeste, | system          | success         |
+|                           |                 |                                |                           | Setor: SSMA, Link: https://fibrasacombr.sharepoint |                 |                 |
+|                           |                 |                                |                           | .com/sites/GED/DocumentosSolicitacoes/Nordeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SSMA%20-             |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SEGURANCA,%20SAUDE%20E%20MEIO%20AM |                 |                 |
+|                           |                 |                                |                           | BIENTE                                             |                 |                 |
+| 2025-10-02 07:25:39       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: GAF, Link: https://fibrasacombr.sharepoint. |                 |                 |
+|                           |                 |                                |                           | com/sites/GED/DocumentosSolicitacoes/Sudeste%20-   |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/GAF%20-              |                 |                 |
+|                           |                 |                                |                           | %20GERENCIA%20ADM%20FINANCEIRA                     |                 |                 |
+| 2025-10-02 07:25:41       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: GEPRO, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/GEPRO%20-            |                 |                 |
+|                           |                 |                                |                           | %20GERENCIA%20DE%20PRODUCAO                        |                 |                 |
+| 2025-10-02 07:25:42       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEART, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEART%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ARTES%20GR%C3%81FICAS              |                 |                 |
+| 2025-10-02 07:25:43       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEDEC, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEDEC%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DECORA%C3%87%C3%83O                |                 |                 |
+| 2025-10-02 07:25:44       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEDES, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEDES%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DESENVOLVIMENTO                    |                 |                 |
+| 2025-10-02 07:25:45       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEENG, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEENG%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ENG.%20PROCESSO                    |                 |                 |
+| 2025-10-02 07:25:46       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEEXP, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEEXP%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXPEDICAO                          |                 |                 |
+| 2025-10-02 07:25:47       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEFER, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEFER%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FERRAMENTARIA                      |                 |                 |
+| 2025-10-02 07:25:49       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEFIS, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEFIS%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20FISCAL                                  |                 |                 |
+| 2025-10-02 07:25:50       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEIMP, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEIMP%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20IMPRESSAO                          |                 |                 |
+| 2025-10-02 07:25:51       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEINF, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEINF%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20INFORMATICA                        |                 |                 |
+| 2025-10-02 07:25:52       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEINJ, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEINJ%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20INJE%C3%87%C3%83O                  |                 |                 |
+| 2025-10-02 07:25:53       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SELIMP, Link: https://fibrasacombr.sharepoi |                 |                 |
+|                           |                 |                                |                           | nt.com/sites/GED/DocumentosSolicitacoes/Sudeste%20 |                 |                 |
+|                           |                 |                                |                           | -%20FIES/N%C3%A3o%20Publicados/SELIMP-             |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20LIMPEZA                            |                 |                 |
+| 2025-10-02 07:25:54       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEMAN, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEMAN%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MANUTENCAO                         |                 |                 |
+| 2025-10-02 07:25:56       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEMAT, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEMAT%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MATERIAIS                          |                 |                 |
+| 2025-10-02 07:25:57       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEPRO, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEPRO%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PROJETOS                           |                 |                 |
+| 2025-10-02 07:25:58       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEQUA, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEQUA%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20QUALIDADE                          |                 |                 |
+| 2025-10-02 07:25:59       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SERET, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SERET%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20RELACOES%20TRABALHISTAS            |                 |                 |
+| 2025-10-02 07:26:00       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SESUP, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SESUP%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SUPRIMENTOS                        |                 |                 |
+| 2025-10-02 07:26:01       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SETER, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SETER%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20TERMOFORMAGEM                      |                 |                 |
+| 2025-10-02 07:26:03       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SETRU, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/DocumentosSolicitacoes/Sudeste%20- |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SETRU%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXTRUSAO                           |                 |                 |
+| 2025-10-02 07:26:04       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SSMA, Link: https://fibrasacombr.sharepoint |                 |                 |
+|                           |                 |                                |                           | .com/sites/GED/DocumentosSolicitacoes/Sudeste%20-  |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SSMA%20-             |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SEGURANCA,%20SAUDE%20E%20MEIO%20AM |                 |                 |
+|                           |                 |                                |                           | BIENTE                                             |                 |                 |
+| 2025-10-02 07:26:05       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: GAF, Link: https://fibrasacombr.sharepoint. |                 |                 |
+|                           |                 |                                |                           | com/sites/GED/Documentos%20Compartilhados/3.Sudest |                 |                 |
+|                           |                 |                                |                           | e%20-%20FIES/Publicados/GAF%20-                    |                 |                 |
+|                           |                 |                                |                           | %20GERENCIA%20ADM%20FINANCEIRA                     |                 |                 |
+| 2025-10-02 07:26:06       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: GEPRO, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/GEPRO%20-                |                 |                 |
+|                           |                 |                                |                           | %20GERENCIA%20DE%20PRODUCAO                        |                 |                 |
+| 2025-10-02 07:26:07       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEART, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SEART%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ARTES                              |                 |                 |
+| 2025-10-02 07:26:08       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEDEC, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SEDEC%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DECORA%C3%87%C3%83O                |                 |                 |
+| 2025-10-02 07:26:10       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEDES, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SEDES%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DESENVOLVIMENTO                    |                 |                 |
+| 2025-10-02 07:26:11       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEENG, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SEENG%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ENG.%20PROCESSO                    |                 |                 |
+| 2025-10-02 07:26:12       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEEXP, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SEEXP%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXPEDICAO                          |                 |                 |
+| 2025-10-02 07:26:13       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEFER, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SEFER%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FERRAMENTARIA                      |                 |                 |
+| 2025-10-02 07:26:14       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEFIS, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SEFIS%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20FISCAL                                  |                 |                 |
+| 2025-10-02 07:26:15       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEIMP, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SEIMP%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20IMPRESSAO                          |                 |                 |
+| 2025-10-02 07:26:16       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEINF, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SEINF%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20INFORMATICA                        |                 |                 |
+| 2025-10-02 07:26:18       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEINJ, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SEINJ%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20INJE%C3%87%C3%83O                  |                 |                 |
+| 2025-10-02 07:26:19       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SELIMP, Link: https://fibrasacombr.sharepoi |                 |                 |
+|                           |                 |                                |                           | nt.com/sites/GED/Documentos%20Compartilhados/3.Sud |                 |                 |
+|                           |                 |                                |                           | este%20-%20FIES/Publicados/SELIMP-                 |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20LIMPEZA                            |                 |                 |
+| 2025-10-02 07:26:20       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEMAN, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SEMAN%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MANUTENCAO                         |                 |                 |
+| 2025-10-02 07:26:21       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEMAT, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SEMAT%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MATERIAIS                          |                 |                 |
+| 2025-10-02 07:26:22       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEPRO, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SEPRO%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PROJETOS                           |                 |                 |
+| 2025-10-02 07:26:23       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SEQUA, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SEQUA%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20QUALIDADE                          |                 |                 |
+| 2025-10-02 07:26:25       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SERET, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SERET%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20RELACOES%20TRABALHISTAS            |                 |                 |
+| 2025-10-02 07:26:26       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SESUP, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SESUP%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SUPRIMENTOS                        |                 |                 |
+| 2025-10-02 07:26:27       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SETER, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SETER%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20TERMOFORMAGEM                      |                 |                 |
+| 2025-10-02 07:26:28       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SETRU, Link: https://fibrasacombr.sharepoin |                 |                 |
+|                           |                 |                                |                           | t.com/sites/GED/Documentos%20Compartilhados/3.Sude |                 |                 |
+|                           |                 |                                |                           | ste%20-%20FIES/Publicados/SETRU%20-                |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXTRUSAO                           |                 |                 |
+| 2025-10-02 07:26:29       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Registro inserido com sucesso - Unidade: Sudeste,  | system          | success         |
+|                           |                 |                                |                           | Setor: SSMA, Link: https://fibrasacombr.sharepoint |                 |                 |
+|                           |                 |                                |                           | .com/sites/GED/Documentos%20Compartilhados/3.Sudes |                 |                 |
+|                           |                 |                                |                           | te%20-%20FIES/Publicados/SSMA%20-                  |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SEGURANCA,%20SAUDE%20E%20MEIO%20AM |                 |                 |
+|                           |                 |                                |                           | BIENTE                                             |                 |                 |
+| 2025-10-02 07:26:30       | IMP_DOC_QUALIS_ | inserir_registro               | tabela_documentos_ged.py  | Processamento concluído - Inseridos: 154, Já       | system          | information     |
+|                           |                 |                                |                           | existentes: 0, Erros: 0                            |                 |                 |
+| 2025-10-02 07:26:30       | IMP_DOC_QUALIS_ | Main                           | main.py                   | Registros inseridos com sucesso na tabela          | system          | success         |
+|                           |                 |                                |                           | documentos_ged                                     |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+

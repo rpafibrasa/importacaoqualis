@@ -1,23 +1,29 @@
 {
     "project": {
-        "name": "Qualis2025",
+        "name": "IMP_DOC_QUALIS_R1",
         "version": "1.0.0"
     },
     "database": {
-        "schema": "Qualis",
+        "host": "aws-1-us-east-2.pooler.supabase.com",
+        "port": 6543,
+        "database": "postgres",
+        "username": "postgres.dprfaxqdffygppmtgppy",
+        "password": "<wqXD0J3[3rw",
+        "schema": "public",
         "logtablename": "logrec",
-        "relatprocessname": "relatorios_processo_info_runner1",
-        "databasename": "rpa_prd",
-        "tabcontroledados": "controle_execucao_runner1"
-    },
-    "test": {
-        "message": "Hello Mr",
-        "name": "Tester"
+        "databasename": "postgres",
+        "sslmode": "require",
+        "tabdocumentosged": "documentos_ged"
     },
     "folders": {
         "folderlog": "artifacts\\logs",
         "folderrede": "",
         "foldercapturados": "data\\input\\Capturados",
+        "folderprocessados": "data\\input\\Processados",
         "foldertemp": "data\\Temp"
+    },
+    "test": {
+        "message": "Teste de configuração",
+        "name": "TestConfig"
     }
 }

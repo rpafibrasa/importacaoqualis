@@ -1,0 +1,37 @@
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+|         TIMESTAMP         |       TASK      |            FUNCTION            |            FILE           |                       MESSAGE                      |   PROCESS_TYPE  |      STATUS     |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-02 08:51:05       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | dcConfig disponível: ['dbconnstr', 'dbschema',     | system          | information     |
+|                           |                 |                                |                           | 'projectname', 'folderlog', 'logtablename',        |                 |                 |
+|                           |                 |                                |                           | 'databasename', 'tabdocumentosged', 'url_inicial', |                 |                 |
+|                           |                 |                                |                           | 'url_api_processo', 'database']                    |                 |                 |
+| 2025-10-02 08:51:05       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | :::Processo de Conexão Iniciado:::                 | system          | information     |
+| 2025-10-02 08:51:07       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | Conectado com sucesso ao PostgreSQL: PostgreSQL    | system          | success         |
+|                           |                 |                                |                           | 17.6 on aarch64-unknown-linux-gnu, comp            |                 |                 |
+| 2025-10-02 08:51:08       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Não existe arquivo .xlsx na pasta                  | system          | critical        |
+|                           |                 |                                |                           | data\input\Capturados - LN 279 em                  |                 |                 |
+|                           |                 |                                |                           | planilha_processar.py                              |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-02 08:51:08       | IMP_DOC_QUALIS_ | Main                           | main.py                   | Planilha de Processamento não encontrada ou Vazia  | system          | critical        |
+|                           |                 |                                |                           | - LN 22 em main.py                                 |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-02 08:51:09       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | === TENTATIVA 1 DE 3 ===                           | system          | information     |
+| 2025-10-02 08:51:09       | IMP_DOC_QUALIS_ | _inicializar_navegador         | sharepoint_acesso.py      | Abrindo o navegador                                | system          | information     |
+| 2025-10-02 08:51:13       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando página inicial                           | system          | information     |
+| 2025-10-02 08:51:37       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Erro ao acessar portal: Locator.click: Target      | system          | failure         |
+|                           |                 |                                |                           | page, context or browser has been closed Call log: |                 |                 |
+|                           |                 |                                |                           | - waiting for get_by_text("MS-SymbolLockup Login   |                 |                 |
+|                           |                 |                                |                           | com")     - waiting for navigation to finish...    |                 |                 |
+|                           |                 |                                |                           | - navigated to "https://login.microsoftonline.com/ |                 |                 |
+|                           |                 |                                |                           | a860fe4e-57ec-45a7-aacd-                           |                 |                 |
+|                           |                 |                                |                           | 3e1bf04aa721/oauth2/authorize?client%5Fid=00000003 |                 |                 |
+|                           |                 |                                |                           | %2D0000%2D0ff1%2Dce00%2D000000000000&response%5Fmo |                 |                 |
+|                           |                 |                                |                           | de=form%5Fpost&response%5Ftype=code%20id%…"  - LN  |                 |                 |
+|                           |                 |                                |                           | 63 em sharepoint_acesso.py                         |                 |                 |
+| 2025-10-02 08:51:38       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | === TENTATIVA 2 DE 3 ===                           | system          | information     |
+| 2025-10-02 08:51:38       | IMP_DOC_QUALIS_ | _inicializar_navegador         | sharepoint_acesso.py      | Abrindo o navegador                                | system          | information     |
+| 2025-10-02 08:51:39       | IMP_DOC_QUALIS_ | _inicializar_navegador         | sharepoint_acesso.py      | Erro ao inicializar navegador: It looks like you   | system          | failure         |
+|                           |                 |                                |                           | are using Playwright Sync API inside the asyncio   |                 |                 |
+|                           |                 |                                |                           | loop. Please use the Async API instead. - LN 48 em |                 |                 |
+|                           |                 |                                |                           | sharepoint_acesso.py                               |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+

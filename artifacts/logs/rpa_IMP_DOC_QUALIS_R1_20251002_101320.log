@@ -1,0 +1,77 @@
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+|         TIMESTAMP         |       TASK      |            FUNCTION            |            FILE           |                       MESSAGE                      |   PROCESS_TYPE  |      STATUS     |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-02 10:13:20       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | dcConfig disponível: ['dbconnstr', 'dbschema',     | system          | information     |
+|                           |                 |                                |                           | 'projectname', 'folderlog', 'logtablename',        |                 |                 |
+|                           |                 |                                |                           | 'databasename', 'tabdocumentosged', 'url_inicial', |                 |                 |
+|                           |                 |                                |                           | 'url_api_processo', 'database']                    |                 |                 |
+| 2025-10-02 10:13:20       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | :::Processo de Conexão Iniciado:::                 | system          | information     |
+| 2025-10-02 10:13:21       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | Conectado com sucesso ao PostgreSQL: PostgreSQL    | system          | success         |
+|                           |                 |                                |                           | 17.6 on aarch64-unknown-linux-gnu, comp            |                 |                 |
+| 2025-10-02 10:13:22       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Não existe arquivo .xlsx na pasta                  | system          | critical        |
+|                           |                 |                                |                           | data\input\Capturados - LN 279 em                  |                 |                 |
+|                           |                 |                                |                           | planilha_processar.py                              |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-02 10:13:23       | IMP_DOC_QUALIS_ | Main                           | main.py                   | Planilha de Processamento não encontrada ou Vazia  | system          | critical        |
+|                           |                 |                                |                           | - LN 22 em main.py                                 |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-02 10:13:23       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | sharepoint_acesso.py      | db_manager está conectado                          | system          | information     |
+| 2025-10-02 10:13:24       | IMP_DOC_QUALIS_ | _obter_links_do_banco          | sharepoint_acesso.py      | 154 links obtidos do banco                         | system          | information     |
+| 2025-10-02 10:13:25       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | === TENTATIVA 1 DE 3 ===                           | system          | information     |
+| 2025-10-02 10:13:25       | IMP_DOC_QUALIS_ | _inicializar_navegador         | sharepoint_acesso.py      | Abrindo o navegador                                | system          | information     |
+| 2025-10-02 10:13:32       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados                 |                 |                 |
+| 2025-10-02 10:13:33       | IMP_DOC_QUALIS_ | _efetuar_login                 | sharepoint_acesso.py      | Efetuando login                                    | system          | information     |
+| 2025-10-02 10:13:38       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Acessando link 2/154                               | system          | information     |
+| 2025-10-02 10:13:39       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/Documentos%20Compartilhados/1.Corporati |                 |                 |
+|                           |                 |                                |                           | vo%20-%20FICORP/Publicados                         |                 |                 |
+| 2025-10-02 10:13:45       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Acessando link 3/154                               | system          | information     |
+| 2025-10-02 10:13:45       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Nordeste%20-     |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados                      |                 |                 |
+| 2025-10-02 10:13:49       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Acessando link 4/154                               | system          | information     |
+| 2025-10-02 10:13:49       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/Documentos%20Compartilhados/2.Nordeste% |                 |                 |
+|                           |                 |                                |                           | 20-%20FINE/Publicados                              |                 |                 |
+| 2025-10-02 10:13:53       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Acessando link 5/154                               | system          | information     |
+| 2025-10-02 10:13:53       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Sudeste%20-      |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados                      |                 |                 |
+| 2025-10-02 10:13:57       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Acessando link 6/154                               | system          | information     |
+| 2025-10-02 10:13:57       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/Documentos%20Compartilhados/3.Sudeste%2 |                 |                 |
+|                           |                 |                                |                           | 0-%20FIES/Publicados                               |                 |                 |
+| 2025-10-02 10:14:01       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Acessando link 7/154                               | system          | information     |
+| 2025-10-02 10:14:01       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/DAF%20-         |                 |                 |
+|                           |                 |                                |                           | %20DIRETORIA%20ADM%20FINANCEIRA                    |                 |                 |
+| 2025-10-02 10:14:02       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Erro ao acessar URL: Page.goto: net::ERR_ABORTED   | system          | failure         |
+|                           |                 |                                |                           | at https://fibrasacombr.sharepoint.com/sites/GED/D |                 |                 |
+|                           |                 |                                |                           | ocumentosSolicitacoes/Corporativo%20-              |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/DAF%20-         |                 |                 |
+|                           |                 |                                |                           | %20DIRETORIA%20ADM%20FINANCEIRA Call log:   -      |                 |                 |
+|                           |                 |                                |                           | navigating to "https://fibrasacombr.sharepoint.com |                 |                 |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/DAF%20-         |                 |                 |
+|                           |                 |                                |                           | %20DIRETORIA%20ADM%20FINANCEIRA", waiting until    |                 |                 |
+|                           |                 |                                |                           | "load"  - LN 108 em sharepoint_acesso.py           |                 |                 |
+| 2025-10-02 10:14:04       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Acessando link 8/154                               | system          | information     |
+| 2025-10-02 10:14:04       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/EOF%20-         |                 |                 |
+|                           |                 |                                |                           | %20EXCELENCIA%20OPERACIONAL%20FIBRASA              |                 |                 |
+| 2025-10-02 10:14:05       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Erro ao acessar URL: Page.goto: Target page,       | system          | failure         |
+|                           |                 |                                |                           | context or browser has been closed - LN 108 em     |                 |                 |
+|                           |                 |                                |                           | sharepoint_acesso.py                               |                 |                 |
+| 2025-10-02 10:14:06       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Acessando link 9/154                               | system          | information     |
+| 2025-10-02 10:14:07       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/GEPRO-          |                 |                 |
+|                           |                 |                                |                           | %20GER%C3%8ANCIA%20INDUSTRIAL                      |                 |                 |
+| 2025-10-02 10:14:07       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Erro ao acessar URL: Page.goto: Target page,       | system          | failure         |
+|                           |                 |                                |                           | context or browser has been closed - LN 108 em     |                 |                 |
+|                           |                 |                                |                           | sharepoint_acesso.py                               |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+

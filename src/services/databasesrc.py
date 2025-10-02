@@ -1,7 +1,10 @@
 import logging
-import pyodbc
+import psycopg2
+from psycopg2 import sql
 from typing import Optional, Tuple, Any
 import traceback
+import os
+from urllib.parse import urlparse
 
 class DBManager:
     """
@@ -37,7 +40,7 @@ class DBManager:
         return DBManager._logger
     
     def connect(self) -> bool:
-        """Conecta ao banco de dados SQL Server e retorna o status da conexão."""
+        """Conecta ao banco de dados PostgreSQL usando configurações do config.json."""
         logger = DBManager._logger
         
         # Se já estiver conectado, verifica se a conexão ainda está ativa
@@ -55,63 +58,66 @@ class DBManager:
                 if logger:
                     logger.log_warning("connect", "Conexão perdida, tentando reconectar")
         
-        # Obtém credenciais das variáveis dcConfig
+        # Obtém configurações do banco de dados do config.json
         if not DBManager._dcConfig:
             if logger:
-                logger.log_error("db_connect", "dcConfig não foi inicializado")
+                logger.log_error("connect", "dcConfig não foi inicializado")
             return False
             
-        driver = '{ODBC Driver 17 for SQL Server}'
-        server = r'server'
-        database = 'rpa_prd'
-        username = 'rpa'
-        password = r'password'
-
-        # Montando a string final
-        connection_string = f"DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password};TrustServerCertificate=yes;"
-        #connection_string = DBManager._dcConfig.get('dbconnstr')
-        #connection_string = DBManager._dcConfig.get('dbconnstr')
-        schema = DBManager._dcConfig.get('dbschema')
+        # Debug: verificar estrutura do dcConfig
+        if logger:
+            logger.log_info("connect", f"dcConfig disponível: {list(DBManager._dcConfig.keys())}")
         
-        # Verifica se a connection string está disponível
-        if not connection_string:
+        # Verificar se existe a chave 'database' ou se as configurações estão diretamente no dcConfig
+        if 'database' in DBManager._dcConfig:
+            db_config = DBManager._dcConfig['database']
+        elif 'host' in DBManager._dcConfig:
+            # Configurações estão diretamente no dcConfig
+            db_config = DBManager._dcConfig
+        else:
             if logger:
-                logger.log_error("db_connect", "Connection string não encontrada em dcConfig")
+                logger.log_error("connect", "Configurações de banco de dados não encontradas no config.json")
             return False
         
-        # Tenta estabelecer a conexão com o SQL Server
         try:
-            if logger:
-                logger.log_info("connect", ":::Processo Iniciado:::")
+            host = db_config.get('host')
+            port = db_config.get('port', 5432)
+            database = db_config.get('database')
+            username = db_config.get('username')
+            password = db_config.get('password')
+            sslmode = db_config.get('sslmode', 'require')
             
-            # Estabelece a conexão usando pyodbc
-            self._connection = pyodbc.connect(connection_string)
+            if not all([host, database, username, password]):
+                if logger:
+                    logger.log_error("connect", "Configurações de banco de dados incompletas no config.json")
+                return False
+            
+            if logger:
+                logger.log_info("connect", ":::Processo de Conexão Iniciado:::")
+            
+            # Estabelece a conexão usando psycopg2
+            self._connection = psycopg2.connect(
+                host=host,
+                port=port,
+                database=database,
+                user=username,
+                password=password,
+                sslmode=sslmode
+            )
             
             # Testando a conexão
             cursor = self._connection.cursor()
-            cursor.execute('SELECT @@VERSION')
+            cursor.execute('SELECT version()')
             version = cursor.fetchone()[0]
             cursor.close()
             
             if logger:
-                logger.log_success("connect", f"Conectado com sucesso ao SQL Server: {version[:50]} - Schema: {schema})")
+                logger.log_success("connect", f"Conectado com sucesso ao PostgreSQL: {version[:50]}")
             
-            # Configura o schema se necessário
-            if schema:
-                cursor = self._connection.cursor()
-                # Verifica se o schema já existe
-                cursor.execute(f"SELECT COUNT(*) FROM sys.schemas WHERE name = '{schema}'")
-                schema_exists = cursor.fetchone()[0] > 0
-                
-                if not schema_exists:
-                    cursor.execute(f"CREATE SCHEMA [{schema}]")
-                    self._connection.commit()
-                    logger.log_success("connect", f"Schema '{schema}' criado com sucesso")
-                
-                cursor.close()
             return True
         except Exception as e:
-            if logger: logger.log_error("db_connect", f"Falha ao conectar ao banco de dados: {str(e)}", e)
+            if logger: 
+                logger.log_error("db_connect", f"Falha ao conectar ao banco de dados: {str(e)}", e)
             return False
     
     def get_connection(self) -> Optional[Any]:

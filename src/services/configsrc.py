@@ -6,6 +6,7 @@ class config:
         self.dcConfig = {}
         self.dcParameter = {}
     
+    @staticmethod
     def loadconfig():
         try:
             # Clear Console
@@ -21,14 +22,13 @@ class config:
             
             # ===== Global Config =====
             # Get Parameters from .env and config.json
-            dbconnstr = os.getenv('DATABASE_CONNECTION_STRING')
+            dbconnstr = os.getenv('CONNECTION_SUPABASE') or os.getenv('DATABASE_CONNECTION_STRING')
             dbschema = jsondata['database']['schema']
             projectname = jsondata['project']['name']
             folderlog = jsondata['folders']['folderlog']
             logtablename = jsondata['database']['logtablename']
             databasename = jsondata['database']['databasename']
-            tabrelprocessname = jsondata['database']['relatprocessname']
-            tabcontroledados = jsondata['database']['tabcontroledados']
+            tabdocumentosged = jsondata['database']['tabdocumentosged']
             url_inicial = os.getenv('URL_INICIAL')
             url_api_processo = os.getenv('URL_API_PROCESSO')
             
@@ -40,10 +40,11 @@ class config:
                 'folderlog': folderlog, # Folder Log
                 'logtablename': logtablename, # Log Table Name
                 'databasename': databasename, # Database Name
-                'tabrelprocessname': tabrelprocessname, # Table Process Name
-                'tabcontroledados': tabcontroledados, # Table Controle Dados
+                'tabdocumentosged': tabdocumentosged, # Table Documentos GED
                 'url_inicial': url_inicial, # URL Inicial
                 'url_api_processo': url_api_processo, # URL API Processo
+                # Adicionar configurações de banco de dados do config.json
+                'database': jsondata['database']  # Configurações completas do banco
             }
             
             # ===== Global Parameters =====
@@ -52,6 +53,7 @@ class config:
             testname = jsondata['test']['name']
             folderrede = jsondata['folders']['folderrede']
             foldercapturados = jsondata['folders']['foldercapturados']
+            folderprocessados = jsondata['folders']['folderprocessados']
             foldertemp = jsondata['folders']['foldertemp']
 
             # Set Parameters
@@ -60,9 +62,12 @@ class config:
                 'testname': testname,        # Test Name
                 'folderrede': folderrede, # folderrede 
                 'foldercapturados': foldercapturados, # Folder Capturados
+                'folderprocessados': folderprocessados, # Folder Processados
                 'foldertemp': foldertemp, # Folder Temp
             }
             
             return dcConfig, dcParameter
         except Exception as e:
-            print(e)
+            print(f"Erro ao carregar configurações: {e}")
+            # Retornar configurações padrão em caso de erro
+            return {}, {}

@@ -1,0 +1,68 @@
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+|         TIMESTAMP         |       TASK      |            FUNCTION            |            FILE           |                       MESSAGE                      |   PROCESS_TYPE  |      STATUS     |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-01 12:21:00       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | dcConfig disponível: ['dbconnstr', 'dbschema',     | system          | information     |
+|                           |                 |                                |                           | 'projectname', 'folderlog', 'logtablename',        |                 |                 |
+|                           |                 |                                |                           | 'databasename', 'tabrelprocessname',               |                 |                 |
+|                           |                 |                                |                           | 'tabcontroledados', 'url_inicial',                 |                 |                 |
+|                           |                 |                                |                           | 'url_api_processo', 'database']                    |                 |                 |
+| 2025-10-01 12:21:00       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | :::Processo de Conexão Iniciado:::                 | system          | information     |
+| 2025-10-01 12:21:02       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | Conectado com sucesso ao PostgreSQL: PostgreSQL    | system          | success         |
+|                           |                 |                                |                           | 17.6 on aarch64-unknown-linux-gnu, comp            |                 |                 |
+| 2025-10-01 12:21:03       | IMP_DOC_QUALIS_ | ExecutarHelloWorld             | executarhelloworld.py     | Executando Hello World!                            | system          | information     |
+| 2025-10-01 12:21:03       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Arquivo encontrado                                 | system          | information     |
+| 2025-10-01 12:21:04       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Nome do arquivo: Tabela - Pastas GED por           | system          | information     |
+|                           |                 |                                |                           | setor.xlsx                                         |                 |                 |
+| 2025-10-01 12:21:04       | IMP_DOC_QUALIS_ | carregardadosplanilha          | planilha_processar.py     | Carregando dados da planilha                       | system          | information     |
+|                           |                 |                                |                           | data\input\Capturados\Tabela - Pastas GED por      |                 |                 |
+|                           |                 |                                |                           | setor.xlsx                                         |                 |                 |
+| 2025-10-01 12:21:05       | IMP_DOC_QUALIS_ | carregardadosplanilha          | planilha_processar.py     | Abas encontradas: ['LINK POR UNIDADE', 'LINK POR   | system          | information     |
+|                           |                 |                                |                           | SETOR']                                            |                 |                 |
+| 2025-10-01 12:21:06       | IMP_DOC_QUALIS_ | carregardadosplanilha          | planilha_processar.py     | Processando aba: LINK POR UNIDADE                  | system          | information     |
+| 2025-10-01 12:21:06       | IMP_DOC_QUALIS_ | carregardadosplanilha          | planilha_processar.py     | Aba 'LINK POR UNIDADE' carregada com sucesso.      | system          | information     |
+|                           |                 |                                |                           | Linhas: 6, Colunas: ['Unidade', 'Tipo de           |                 |                 |
+|                           |                 |                                |                           | documento', 'Link']                                |                 |                 |
+| 2025-10-01 12:21:07       | IMP_DOC_QUALIS_ | carregardadosplanilha          | planilha_processar.py     | Processando aba: LINK POR SETOR                    | system          | information     |
+| 2025-10-01 12:21:07       | IMP_DOC_QUALIS_ | carregardadosplanilha          | planilha_processar.py     | Aba 'LINK POR SETOR' carregada com sucesso.        | system          | information     |
+|                           |                 |                                |                           | Linhas: 148, Colunas: ['Unidade', 'Setor', 'Tipo   |                 |                 |
+|                           |                 |                                |                           | de documento', 'Link']                             |                 |                 |
+| 2025-10-01 12:21:08       | IMP_DOC_QUALIS_ | carregardadosplanilha          | planilha_processar.py     | Dados carregados com sucesso de 2 aba(s)           | system          | information     |
+| 2025-10-01 12:21:08       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Erro ao mover arquivo para pasta processados:      | system          | failure         |
+|                           |                 |                                |                           | [WinError 32] O arquivo já está sendo usado por    |                 |                 |
+|                           |                 |                                |                           | outro processo: 'data\\input\\Capturados\\Tabela - |                 |                 |
+|                           |                 |                                |                           | Pastas GED por setor.xlsx' ->                      |                 |                 |
+|                           |                 |                                |                           | 'data\\input\\Processados\\Tabela - Pastas GED por |                 |                 |
+|                           |                 |                                |                           | setor.xlsx' - LN 207 em planilha_processar.py      |                 |                 |
+| 2025-10-01 12:21:09       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Erro ao verificar arquivo: [WinError 32] O arquivo | system          | failure         |
+|                           |                 |                                |                           | já está sendo usado por outro processo:            |                 |                 |
+|                           |                 |                                |                           | 'data\\input\\Capturados\\Tabela - Pastas GED por  |                 |                 |
+|                           |                 |                                |                           | setor.xlsx' - LN 211 em planilha_processar.py      |                 |                 |
+| 2025-10-01 12:21:09       | IMP_DOC_QUALIS_ | Main                           | main.py                   | Erro crítico: Arquivo de processamento não         | system          | critical        |
+|                           |                 |                                |                           | encontrado: [WinError 32] O arquivo já está sendo  |                 |                 |
+|                           |                 |                                |                           | usado por outro processo:                          |                 |                 |
+|                           |                 |                                |                           | 'data\\input\\Capturados\\Tabela - Pastas GED por  |                 |                 |
+|                           |                 |                                |                           | setor.xlsx' Traceback: Traceback (most recent call |                 |                 |
+|                           |                 |                                |                           | last):   File "c:\RPA\Qualidade\IMP_DOC_QUALIS\R1\ |                 |                 |
+|                           |                 |                                |                           | src\tasks\planilha_processar.py", line 211, in     |                 |                 |
+|                           |                 |                                |                           | verifica_arq_existe     os.remove(filepath)        |                 |                 |
+|                           |                 |                                |                           | ~~~~~~~~~^^^^^^^^^^ PermissionError: [WinError 32] |                 |                 |
+|                           |                 |                                |                           | O arquivo já está sendo usado por outro processo:  |                 |                 |
+|                           |                 |                                |                           | 'data\\input\\Capturados\\Tabela - Pastas GED por  |                 |                 |
+|                           |                 |                                |                           | setor.xlsx'  During handling of the above          |                 |                 |
+|                           |                 |                                |                           | exception, another exception occurred:  Traceback  |                 |                 |
+|                           |                 |                                |                           | (most recent call last):   File                    |                 |                 |
+|                           |                 |                                |                           | "c:\RPA\Qualidade\IMP_DOC_QUALIS\R1\main.py", line |                 |                 |
+|                           |                 |                                |                           | 19, in main     services.dcParameter, df =         |                 |                 |
+|                           |                 |                                |                           | services.planilha_processar.verifica_arq_existe()  |                 |                 |
+|                           |                 |                                |                           | ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^  |                 |                 |
+|                           |                 |                                |                           | File "c:\RPA\Qualidade\IMP_DOC_QUALIS\R1\src\tasks |                 |                 |
+|                           |                 |                                |                           | \planilha_processar.py", line 226, in              |                 |                 |
+|                           |                 |                                |                           | verifica_arq_existe     raise Exception(f"Arquivo  |                 |                 |
+|                           |                 |                                |                           | de processamento não encontrado: {str(e)}")        |                 |                 |
+|                           |                 |                                |                           | Exception: Arquivo de processamento não            |                 |                 |
+|                           |                 |                                |                           | encontrado: [WinError 32] O arquivo já está sendo  |                 |                 |
+|                           |                 |                                |                           | usado por outro processo:                          |                 |                 |
+|                           |                 |                                |                           | 'data\\input\\Capturados\\Tabela - Pastas GED por  |                 |                 |
+|                           |                 |                                |                           | setor.xlsx'  - LN 30 em main.py                    |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+

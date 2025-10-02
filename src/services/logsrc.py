@@ -3,7 +3,8 @@ import os
 import datetime
 import inspect
 import psutil
-import pyodbc
+import psycopg2
+from psycopg2 import sql
 import textwrap
 import traceback
 from enum import Enum
@@ -137,15 +138,15 @@ class EnhancedLogger:
             print(e)
 
     def connect_to_db(self, connection) -> bool:
-        """Connect to SQL Server database.
+        """Connect to PostgreSQL database.
         
         Args:
-            connection: Can be either a pyodbc connection object or a connection string
+            connection: Can be either a psycopg2 connection object or a connection string
         """
         try:
             # Se for uma string de conexão, estabelecer conexão
             if isinstance(connection, str):
-                self.db_connection = pyodbc.connect(connection) 
+                self.db_connection = psycopg2.connect(connection) 
             else:
                 # Se for um objeto de conexão, usar diretamente
                 self.db_connection = connection
@@ -164,25 +165,24 @@ class EnhancedLogger:
         try:
             cursor = self.db_connection.cursor()
             
-            # Create schema if it doesn't exist
-            cursor.execute(f"IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = '{self.schema}') EXEC('CREATE SCHEMA [{self.schema}]')")
+            # Create schema if it doesn't exist (PostgreSQL syntax)
+            cursor.execute(f"CREATE SCHEMA IF NOT EXISTS {self.schema}")
             self.db_connection.commit()
             
             create_table_sql = f"""
-            IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='{self.logtablename}' AND xtype='U')
-            CREATE TABLE [{self.schema}].[{self.logtablename}] (
-                id INT IDENTITY(1,1) PRIMARY KEY,
-                task_name NVARCHAR(255),
-                function_name NVARCHAR(255),
-                source_file NVARCHAR(255),
+            CREATE TABLE IF NOT EXISTS {self.schema}.{self.logtablename} (
+                id SERIAL PRIMARY KEY,
+                task_name VARCHAR(255),
+                function_name VARCHAR(255),
+                source_file VARCHAR(255),
                 cpu_usage FLOAT,
                 memory_usage FLOAT,
                 log_date DATE,
                 log_time TIME,
-                log_message NTEXT,
-                process_type NVARCHAR(50),
-                status NVARCHAR(50),
-                created_at DATETIME DEFAULT GETDATE()
+                log_message TEXT,
+                process_type VARCHAR(50),
+                status VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
             """
             cursor.execute(create_table_sql)
@@ -355,31 +355,19 @@ class EnhancedLogger:
         return status_map.get(status, logging.INFO)
     
     def _try_connect_to_database(self) -> None:
-        """Tenta conectar ao banco de dados usando as credenciais corretas."""
-        import pyodbc
-        
-        # Credenciais corretas
-        server = r'server'
-        database = 'rpa_prd'
-        username = 'rpa'
-        password = r'password'
-        
-        # Lista de drivers para tentar (baseado nos disponíveis)
-        drivers = [
-            '{ODBC Driver 17 for SQL Server}',
-            '{SQL Server}',
-            '{ODBC Driver 13 for SQL Server}',
-            '{SQL Server Native Client 11.0}'
-        ]
-        
-        for driver in drivers:
-            try:
-                connection_string = f"DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password};TrustServerCertificate=yes;"
-                print(f"Tentando conectar com driver: {driver}")
-                print(f"String de conexão: {connection_string}")
-                
-                self.db_connection = pyodbc.connect(connection_string)
-                print(f"✓ Conexão estabelecida com sucesso usando driver: {driver}")
+        """Tenta conectar ao banco de dados PostgreSQL usando as configurações do config.json."""
+        try:
+            # Importar DBManager para usar a conexão existente
+            from .databasesrc import DBManager
+            
+            # Obter instância do DBManager
+            db_manager = DBManager(self.dcConfig, self.dcParameter, self)
+            
+            # Tentar conectar
+            if db_manager.connect():
+                # Usar a conexão do DBManager
+                self.db_connection = db_manager._connection
+                print("✓ Conexão com banco de dados estabelecida para logs")
                 
                 # Criar tabela se não existir
                 result = self.create_log_table_if_not_exists()
@@ -389,15 +377,11 @@ class EnhancedLogger:
                     print("⚠ Aviso: Problema ao criar/verificar tabela de logs")
                 
                 return
+            else:
+                print("❌ Falha ao conectar ao banco de dados")
                 
-            except Exception as e:
-                print(f"Falha com driver {driver}: {str(e)}")
-                continue
-        
-        # Se chegou aqui, nenhum driver funcionou
-        print("\n❌ Nenhum driver funcionou. Drivers ODBC disponíveis:")
-        for driver in pyodbc.drivers():
-            print(f"  - {driver}")
+        except Exception as e:
+            print(f"❌ Erro ao conectar ao banco de dados: {str(e)}")
         
         self.log_warning("_try_connect_to_database", "Falha ao conectar ao banco para logs - logs serão salvos apenas em arquivo")
     
@@ -416,17 +400,17 @@ class EnhancedLogger:
             status_value = status.value if hasattr(status, 'value') else str(status)
             
             # Obter schema das configurações
-            schema = self.dcConfig.get('dbschema', self.project_name)
+            schema = self.dcConfig.get('database', {}).get('schema', self.project_name)
             
-            sql = f"""
-            INSERT INTO [{schema}].[{self.logtablename}]
+            sql_query = f"""
+            INSERT INTO {schema}.{self.logtablename}
             (task_name, function_name, source_file, cpu_usage, memory_usage, log_date, log_time, 
             log_message, process_type, status)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """
             
             cursor.execute(
-                sql,
+                sql_query,
                 (task_name, function_name, source_file, cpu_usage, memory_usage, log_date, log_time, 
                 log_message, process_type_value, status_value)
             )
