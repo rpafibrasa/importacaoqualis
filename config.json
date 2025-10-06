@@ -20,6 +20,7 @@
         "folderrede": "",
         "foldercapturados": "data\\input\\Capturados",
         "folderprocessados": "data\\input\\Processados",
+        "folderdownloads": "data\\downloads",
         "foldertemp": "data\\Temp"
     },
     "test": {

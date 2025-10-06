@@ -1,0 +1,30 @@
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+|         TIMESTAMP         |       TASK      |            FUNCTION            |            FILE           |                       MESSAGE                      |   PROCESS_TYPE  |      STATUS     |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-02 13:17:03       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | dcConfig disponível: ['dbconnstr', 'dbschema',     | system          | information     |
+|                           |                 |                                |                           | 'projectname', 'folderlog', 'logtablename',        |                 |                 |
+|                           |                 |                                |                           | 'databasename', 'tabdocumentosged', 'url_inicial', |                 |                 |
+|                           |                 |                                |                           | 'url_api_processo', 'database']                    |                 |                 |
+| 2025-10-02 13:17:03       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | :::Processo de Conexão Iniciado:::                 | system          | information     |
+| 2025-10-02 13:17:05       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | Conectado com sucesso ao PostgreSQL: PostgreSQL    | system          | success         |
+|                           |                 |                                |                           | 17.6 on aarch64-unknown-linux-gnu, comp            |                 |                 |
+| 2025-10-02 13:17:06       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Não existe arquivo .xlsx na pasta                  | system          | critical        |
+|                           |                 |                                |                           | data\input\Capturados - LN 279 em                  |                 |                 |
+|                           |                 |                                |                           | planilha_processar.py                              |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-02 13:17:06       | IMP_DOC_QUALIS_ | Main                           | main.py                   | Planilha de Processamento não encontrada ou Vazia  | system          | critical        |
+|                           |                 |                                |                           | - LN 22 em main.py                                 |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-02 13:17:07       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | sharepoint_acesso.py      | db_manager está conectado                          | system          | information     |
+| 2025-10-02 13:17:07       | IMP_DOC_QUALIS_ | _obter_links_do_banco          | sharepoint_acesso.py      | Pesquisando pelo status: PENDENTE                  | system          | information     |
+| 2025-10-02 13:17:08       | IMP_DOC_QUALIS_ | _obter_links_do_banco          | sharepoint_acesso.py      | 154 links obtidos do banco                         | system          | information     |
+| 2025-10-02 13:17:08       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | === TENTATIVA 1 DE 3 ===                           | system          | information     |
+| 2025-10-02 13:17:09       | IMP_DOC_QUALIS_ | _inicializar_navegador         | sharepoint_acesso.py      | Abrindo o navegador                                | system          | information     |
+| 2025-10-02 13:17:13       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados                 |                 |                 |
+| 2025-10-02 13:17:15       | IMP_DOC_QUALIS_ | _efetuar_login                 | sharepoint_acesso.py      | Efetuando login                                    | system          | information     |
+| 2025-10-02 13:17:18       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Mantendo o navegador no primeiro link para         | system          | information     |
+|                           |                 |                                |                           | análise, sem navegar para os demais links          |                 |                 |
+| 2025-10-02 13:17:18       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Tentando selecionar todas as linhas na grade       | system          | information     |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+

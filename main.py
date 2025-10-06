@@ -30,6 +30,7 @@ def main():
             else:
                 services.logger.log_error('Main', 'Falha ao inserir registros na tabela documentos_ged', None)
 
+        # Executa acesso ao sharepoint, download das pastas e extração de zips. Atualizando também o status na tabela
         services.sharepoint_acesso.executar_acesso_sharepoint()
         # services.qualis_acesso_portal.executar_acesso_portal_qualis()
 

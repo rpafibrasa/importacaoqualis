@@ -54,6 +54,7 @@ class config:
             folderrede = jsondata['folders']['folderrede']
             foldercapturados = jsondata['folders']['foldercapturados']
             folderprocessados = jsondata['folders']['folderprocessados']
+            folderdownloads = jsondata['folders']['folderdownloads']
             foldertemp = jsondata['folders']['foldertemp']
 
             # Set Parameters
@@ -63,6 +64,7 @@ class config:
                 'folderrede': folderrede, # folderrede 
                 'foldercapturados': foldercapturados, # Folder Capturados
                 'folderprocessados': folderprocessados, # Folder Processados
+                'folderdownloads': folderdownloads, # Folder Downloads
                 'foldertemp': foldertemp, # Folder Temp
             }
             

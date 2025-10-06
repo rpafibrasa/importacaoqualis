@@ -25,6 +25,35 @@ class TabelaDocumentosGed:
             self.logger.log_error("confere_conexao_do_banco", f"Erro ao conectar no banco de dados: {str(exception)}", exception)
             return False
 
+
+    def obter_links_do_banco(self, status: str = None, limite: int = None):
+        """Obtém lista de links da tabela documentos_ged"""
+        if not self.confere_conexao_do_banco():
+            return False
+
+        try:
+            query = f"SELECT link FROM {self.schema}.{self.tabdocumentosged}"
+            params = []
+            if status:
+                self.logger.log_info('_obter_links_do_banco', f"Pesquisando pelo status: {status}")
+                query += " WHERE status = %s ORDER BY id"
+                params.append(status)
+            if limite:
+                query += f" LIMIT {limite}"
+
+            success, result = self.db_manager.execute_query(query, tuple(params) if params else None)
+            if success:
+                links = [row[0] for row in result if row and row[0]]
+                self.logger.log_info('_obter_links_do_banco', f"{len(links)} links obtidos do banco")
+                return links
+            else:
+                self.logger.log_error('_obter_links_do_banco', f"Falha na consulta de links: {result}")
+                return []
+        except Exception as e:
+            self.logger.log_error('_obter_links_do_banco', f"Erro ao consultar links: {e}")
+            return []
+            
+
     def inserir_registro(self, dados_processados):
         """Insere registros na tabela documentos_ged baseado na lista de dados processados do Excel"""
         if not self.confere_conexao_do_banco():
@@ -118,6 +147,37 @@ class TabelaDocumentosGed:
             self.logger.log_error("inserir_registro", f"Erro ao processar registros: {str(e)}", e)
             return False
 
+
+    def atualizar_status(self, link: str, status: str) -> bool:
+            """
+            Atualiza o status de um link na tabela documentos_ged
+            """
+            if not self.confere_conexao_do_banco():
+                return False
+
+            try:
+                query = f"UPDATE {self.schema}.{self.tabdocumentosged} SET status = %s WHERE link = %s"
+                success, result = self.db_manager.execute_query(query, (status, link), commit=True)
+                
+                if success:
+                    self.logger.log_info(
+                        "atualizar_status",
+                        f"Status atualizado para {status}: {link}"
+                    )
+                    return True
+                else:
+                    self.logger.log_error(
+                        "atualizar_status",
+                        f"Falha ao atualizar status: {result}"
+                    )
+                    return False
+
+            except Exception as e:
+                self.logger.log_error(
+                    "atualizar_status",
+                    f"Erro ao atualizar status: {e}"
+                )
+                return False
 
     def consultar_registros(self, filtros=None, limite=None):
         """Consulta registros da tabela documentos_ged com filtros opcionais"""

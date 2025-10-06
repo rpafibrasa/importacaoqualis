@@ -1,0 +1,899 @@
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+|         TIMESTAMP         |       TASK      |            FUNCTION            |            FILE           |                       MESSAGE                      |   PROCESS_TYPE  |      STATUS     |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-04 10:51:02       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | dcConfig disponível: ['dbconnstr', 'dbschema',     | system          | information     |
+|                           |                 |                                |                           | 'projectname', 'folderlog', 'logtablename',        |                 |                 |
+|                           |                 |                                |                           | 'databasename', 'tabdocumentosged', 'url_inicial', |                 |                 |
+|                           |                 |                                |                           | 'url_api_processo', 'database']                    |                 |                 |
+| 2025-10-04 10:51:02       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | :::Processo de Conexão Iniciado:::                 | system          | information     |
+| 2025-10-04 10:51:04       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | Conectado com sucesso ao PostgreSQL: PostgreSQL    | system          | success         |
+|                           |                 |                                |                           | 17.6 on aarch64-unknown-linux-gnu, comp            |                 |                 |
+| 2025-10-04 10:51:04       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Não existe arquivo .xlsx na pasta                  | system          | critical        |
+|                           |                 |                                |                           | data\input\Capturados - LN 279 em                  |                 |                 |
+|                           |                 |                                |                           | planilha_processar.py                              |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-04 10:51:05       | IMP_DOC_QUALIS_ | Main                           | main.py                   | Planilha de Processamento não encontrada ou Vazia  | system          | critical        |
+|                           |                 |                                |                           | - LN 22 em main.py                                 |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-04 10:51:05       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | === TENTATIVA 1 DE 3 ===                           | system          | information     |
+| 2025-10-04 10:51:06       | IMP_DOC_QUALIS_ | _inicializar_navegador         | sharepoint_acesso.py      | Abrindo o navegador                                | system          | information     |
+| 2025-10-04 10:51:10       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 10:51:10       | IMP_DOC_QUALIS_ | _obter_links_do_banco          | tabela_documentos_ged.py  | Pesquisando pelo status: PENDENTE                  | system          | information     |
+| 2025-10-04 10:51:11       | IMP_DOC_QUALIS_ | _obter_links_do_banco          | tabela_documentos_ged.py  | 154 links obtidos do banco                         | system          | information     |
+| 2025-10-04 10:51:11       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados                 |                 |                 |
+| 2025-10-04 10:51:15       | IMP_DOC_QUALIS_ | _efetuar_login                 | sharepoint_acesso.py      | Efetuando login...                                 | system          | information     |
+| 2025-10-04 10:51:28       | IMP_DOC_QUALIS_ | _efetuar_login                 | sharepoint_acesso.py      | Login efetuado com sucesso!                        | system          | information     |
+| 2025-10-04 10:51:29       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 1/154 - (tentativa 1/2)           | system          | information     |
+| 2025-10-04 10:51:32       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 1/154...             | system          | information     |
+| 2025-10-04 10:53:19       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 309288162  |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 10:53:22       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 10:53:23       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 10:53:23       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 10:53:24       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 10:53:25       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados                 |                 |                 |
+| 2025-10-04 10:53:55       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Erro ao processar link 1/154: https://fibrasacombr | system          | failure         |
+|                           |                 |                                |                           | .sharepoint.com/sites/GED/DocumentosSolicitacoes/C |                 |                 |
+|                           |                 |                                |                           | orporativo%20-%20FICORP/01.N%C3%A3o%20Publicados - |                 |                 |
+|                           |                 |                                |                           | Timeout 30000ms exceeded. - LN 246 em              |                 |                 |
+|                           |                 |                                |                           | sharepoint_acesso.py                               |                 |                 |
+| 2025-10-04 10:53:56       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Tentativa 1/2 falhou para link 1/154               | system          | warning         |
+| 2025-10-04 10:54:27       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Erro geral na tentativa 1: Timeout 30000ms         | system          | failure         |
+|                           |                 |                                |                           | exceeded. - LN 184 em sharepoint_acesso.py         |                 |                 |
+| 2025-10-04 10:54:27       | IMP_DOC_QUALIS_ | _finalizar_navegador           | sharepoint_acesso.py      | Recursos finalizados com sucesso                   | system          | information     |
+| 2025-10-04 10:54:28       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | === TENTATIVA 2 DE 3 ===                           | system          | information     |
+| 2025-10-04 10:54:28       | IMP_DOC_QUALIS_ | _inicializar_navegador         | sharepoint_acesso.py      | Abrindo o navegador                                | system          | information     |
+| 2025-10-04 10:54:33       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 10:54:33       | IMP_DOC_QUALIS_ | _obter_links_do_banco          | tabela_documentos_ged.py  | Pesquisando pelo status: PENDENTE                  | system          | information     |
+| 2025-10-04 10:54:34       | IMP_DOC_QUALIS_ | _obter_links_do_banco          | tabela_documentos_ged.py  | 153 links obtidos do banco                         | system          | information     |
+| 2025-10-04 10:54:35       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/Documentos%20Compartilhados/1.Corporati |                 |                 |
+|                           |                 |                                |                           | vo%20-%20FICORP/Publicados                         |                 |                 |
+| 2025-10-04 10:54:38       | IMP_DOC_QUALIS_ | _efetuar_login                 | sharepoint_acesso.py      | Efetuando login...                                 | system          | information     |
+| 2025-10-04 10:54:41       | IMP_DOC_QUALIS_ | _efetuar_login                 | sharepoint_acesso.py      | Login efetuado com sucesso!                        | system          | information     |
+| 2025-10-04 10:54:44       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 1/153 - (tentativa 1/2)           | system          | information     |
+| 2025-10-04 10:54:45       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 1/153...             | system          | information     |
+| 2025-10-04 10:56:14       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentos-               |                 |                 |
+|                           |                 |                                |                           | 20compartilhados-1-corporativo-20-20ficorp-        |                 |                 |
+|                           |                 |                                |                           | publicad\OneDrive_1_04-10-2025.zip (tamanho:       |                 |                 |
+|                           |                 |                                |                           | 200003267 bytes)                                   |                 |                 |
+| 2025-10-04 10:56:19       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentos-20compartilhados-1-       |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-                           |                 |                 |
+|                           |                 |                                |                           | publicad\OneDrive_1_04-10-2025.zip extraído para   |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentos-20compartilhados-1-corporativo-20-  |                 |                 |
+|                           |                 |                                |                           | 20ficorp-publicad                                  |                 |                 |
+| 2025-10-04 10:56:20       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentos-20compartilhados-1-corporativo-20-  |                 |                 |
+|                           |                 |                                |                           | 20ficorp-publicad\OneDrive_1_04-10-2025.zip        |                 |                 |
+| 2025-10-04 10:56:20       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentos-20compartilhados-1-corporativo-20-  |                 |                 |
+|                           |                 |                                |                           | 20ficorp-publicad                                  |                 |                 |
+| 2025-10-04 10:56:21       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 10:56:22       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/Documentos%20Compar |                 |                 |
+|                           |                 |                                |                           | tilhados/1.Corporativo%20-%20FICORP/Publicados     |                 |                 |
+| 2025-10-04 10:56:52       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Erro ao processar link 1/153: https://fibrasacombr | system          | failure         |
+|                           |                 |                                |                           | .sharepoint.com/sites/GED/Documentos%20Compartilha |                 |                 |
+|                           |                 |                                |                           | dos/1.Corporativo%20-%20FICORP/Publicados -        |                 |                 |
+|                           |                 |                                |                           | Timeout 30000ms exceeded. - LN 246 em              |                 |                 |
+|                           |                 |                                |                           | sharepoint_acesso.py                               |                 |                 |
+| 2025-10-04 10:56:53       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Tentativa 1/2 falhou para link 1/153               | system          | warning         |
+| 2025-10-04 10:57:24       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Erro geral na tentativa 2: Timeout 30000ms         | system          | failure         |
+|                           |                 |                                |                           | exceeded. - LN 184 em sharepoint_acesso.py         |                 |                 |
+| 2025-10-04 10:57:25       | IMP_DOC_QUALIS_ | _finalizar_navegador           | sharepoint_acesso.py      | Recursos finalizados com sucesso                   | system          | information     |
+| 2025-10-04 10:57:25       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | === TENTATIVA 3 DE 3 ===                           | system          | information     |
+| 2025-10-04 10:57:26       | IMP_DOC_QUALIS_ | _inicializar_navegador         | sharepoint_acesso.py      | Abrindo o navegador                                | system          | information     |
+| 2025-10-04 10:57:30       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 10:57:30       | IMP_DOC_QUALIS_ | _obter_links_do_banco          | tabela_documentos_ged.py  | Pesquisando pelo status: PENDENTE                  | system          | information     |
+| 2025-10-04 10:57:31       | IMP_DOC_QUALIS_ | _obter_links_do_banco          | tabela_documentos_ged.py  | 152 links obtidos do banco                         | system          | information     |
+| 2025-10-04 10:57:32       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Nordeste%20-     |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados                      |                 |                 |
+| 2025-10-04 10:57:35       | IMP_DOC_QUALIS_ | _efetuar_login                 | sharepoint_acesso.py      | Efetuando login...                                 | system          | information     |
+| 2025-10-04 10:57:37       | IMP_DOC_QUALIS_ | _efetuar_login                 | sharepoint_acesso.py      | Login efetuado com sucesso!                        | system          | information     |
+| 2025-10-04 10:57:39       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 1/152 - (tentativa 1/2)           | system          | information     |
+| 2025-10-04 10:57:40       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 1/152...             | system          | information     |
+| 2025-10-04 11:04:43       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-   |                 |                 |
+|                           |                 |                                |                           | nordeste-20-20fine-                                |                 |                 |
+|                           |                 |                                |                           | n-c3-a3o-20publicado\OneDrive_1_04-10-2025.zip     |                 |                 |
+|                           |                 |                                |                           | (tamanho: 1228860187 bytes)                        |                 |                 |
+| 2025-10-04 11:05:02       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-              |                 |                 |
+|                           |                 |                                |                           | nordeste-20-20fine-                                |                 |                 |
+|                           |                 |                                |                           | n-c3-a3o-20publicado\OneDrive_1_04-10-2025.zip     |                 |                 |
+|                           |                 |                                |                           | extraído para data\downloads\fibrasacombr-         |                 |                 |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-   |                 |                 |
+|                           |                 |                                |                           | nordeste-20-20fine-n-c3-a3o-20publicado            |                 |                 |
+| 2025-10-04 11:05:03       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-nordeste-20-20fine-     |                 |                 |
+|                           |                 |                                |                           | n-c3-a3o-20publicado\OneDrive_1_04-10-2025.zip     |                 |                 |
+| 2025-10-04 11:05:03       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-nordeste-20-20fine-     |                 |                 |
+|                           |                 |                                |                           | n-c3-a3o-20publicado                               |                 |                 |
+| 2025-10-04 11:05:04       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:05:05       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Nordeste%20-%20FINE/N%C3%A3o%20Publicados      |                 |                 |
+| 2025-10-04 11:05:05       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 2/152 - (tentativa 1/2)           | system          | information     |
+| 2025-10-04 11:05:06       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 2/152                               | system          | information     |
+| 2025-10-04 11:05:06       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/Documentos%20Compartilhados/2.Nordeste% |                 |                 |
+|                           |                 |                                |                           | 20-%20FINE/Publicados                              |                 |                 |
+| 2025-10-04 11:05:25       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 2/152...             | system          | information     |
+| 2025-10-04 11:18:43       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-                          |                 |                 |
+|                           |                 |                                |                           | documentos-20compartilhados-2-nordeste-20-20fine-  |                 |                 |
+|                           |                 |                                |                           | publicados\OneDrive_1_04-10-2025.zip (tamanho:     |                 |                 |
+|                           |                 |                                |                           | 1999285103 bytes)                                  |                 |                 |
+| 2025-10-04 11:19:48       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-                                     |                 |                 |
+|                           |                 |                                |                           | documentos-20compartilhados-2-nordeste-20-20fine-  |                 |                 |
+|                           |                 |                                |                           | publicados\OneDrive_1_04-10-2025.zip extraído para |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-                                               |                 |                 |
+|                           |                 |                                |                           | documentos-20compartilhados-2-nordeste-20-20fine-  |                 |                 |
+|                           |                 |                                |                           | publicados                                         |                 |                 |
+| 2025-10-04 11:19:49       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-                                               |                 |                 |
+|                           |                 |                                |                           | documentos-20compartilhados-2-nordeste-20-20fine-  |                 |                 |
+|                           |                 |                                |                           | publicados\OneDrive_1_04-10-2025.zip               |                 |                 |
+| 2025-10-04 11:19:49       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-                                               |                 |                 |
+|                           |                 |                                |                           | documentos-20compartilhados-2-nordeste-20-20fine-  |                 |                 |
+|                           |                 |                                |                           | publicados                                         |                 |                 |
+| 2025-10-04 11:19:50       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:19:51       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/Documentos%20Compar |                 |                 |
+|                           |                 |                                |                           | tilhados/2.Nordeste%20-%20FINE/Publicados          |                 |                 |
+| 2025-10-04 11:19:51       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 3/152 - (tentativa 1/2)           | system          | information     |
+| 2025-10-04 11:19:52       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 3/152                               | system          | information     |
+| 2025-10-04 11:19:53       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Sudeste%20-      |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados                      |                 |                 |
+| 2025-10-04 11:20:08       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 3/152...             | system          | information     |
+| 2025-10-04 11:24:45       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-   |                 |                 |
+|                           |                 |                                |                           | sudeste-20-20fies-                                 |                 |                 |
+|                           |                 |                                |                           | n-c3-a3o-20publicados\OneDrive_1_04-10-2025.zip    |                 |                 |
+|                           |                 |                                |                           | (tamanho: 1056134462 bytes)                        |                 |                 |
+| 2025-10-04 11:25:03       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-              |                 |                 |
+|                           |                 |                                |                           | sudeste-20-20fies-                                 |                 |                 |
+|                           |                 |                                |                           | n-c3-a3o-20publicados\OneDrive_1_04-10-2025.zip    |                 |                 |
+|                           |                 |                                |                           | extraído para data\downloads\fibrasacombr-         |                 |                 |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-   |                 |                 |
+|                           |                 |                                |                           | sudeste-20-20fies-n-c3-a3o-20publicados            |                 |                 |
+| 2025-10-04 11:25:04       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-sudeste-20-20fies-      |                 |                 |
+|                           |                 |                                |                           | n-c3-a3o-20publicados\OneDrive_1_04-10-2025.zip    |                 |                 |
+| 2025-10-04 11:25:04       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-sudeste-20-20fies-      |                 |                 |
+|                           |                 |                                |                           | n-c3-a3o-20publicados                              |                 |                 |
+| 2025-10-04 11:25:05       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:25:06       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Sudeste%20-%20FIES/N%C3%A3o%20Publicados       |                 |                 |
+| 2025-10-04 11:25:06       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 4/152 - (tentativa 1/2)           | system          | information     |
+| 2025-10-04 11:25:07       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 4/152                               | system          | information     |
+| 2025-10-04 11:25:07       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/Documentos%20Compartilhados/3.Sudeste%2 |                 |                 |
+|                           |                 |                                |                           | 0-%20FIES/Publicados                               |                 |                 |
+| 2025-10-04 11:25:12       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 4/152...             | system          | information     |
+| 2025-10-04 11:27:27       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-                          |                 |                 |
+|                           |                 |                                |                           | documentos-20compartilhados-3-sudeste-20-20fies-   |                 |                 |
+|                           |                 |                                |                           | publicados\OneDrive_1_04-10-2025.zip (tamanho:     |                 |                 |
+|                           |                 |                                |                           | 244702705 bytes)                                   |                 |                 |
+| 2025-10-04 11:27:36       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-                                     |                 |                 |
+|                           |                 |                                |                           | documentos-20compartilhados-3-sudeste-20-20fies-   |                 |                 |
+|                           |                 |                                |                           | publicados\OneDrive_1_04-10-2025.zip extraído para |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-                                               |                 |                 |
+|                           |                 |                                |                           | documentos-20compartilhados-3-sudeste-20-20fies-   |                 |                 |
+|                           |                 |                                |                           | publicados                                         |                 |                 |
+| 2025-10-04 11:27:36       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-                                               |                 |                 |
+|                           |                 |                                |                           | documentos-20compartilhados-3-sudeste-20-20fies-   |                 |                 |
+|                           |                 |                                |                           | publicados\OneDrive_1_04-10-2025.zip               |                 |                 |
+| 2025-10-04 11:27:37       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-                                               |                 |                 |
+|                           |                 |                                |                           | documentos-20compartilhados-3-sudeste-20-20fies-   |                 |                 |
+|                           |                 |                                |                           | publicados                                         |                 |                 |
+| 2025-10-04 11:27:37       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:27:38       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/Documentos%20Compar |                 |                 |
+|                           |                 |                                |                           | tilhados/3.Sudeste%20-%20FIES/Publicados           |                 |                 |
+| 2025-10-04 11:27:39       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 5/152 - (tentativa 1/2)           | system          | information     |
+| 2025-10-04 11:27:39       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 5/152                               | system          | information     |
+| 2025-10-04 11:27:40       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/DAF%20-         |                 |                 |
+|                           |                 |                                |                           | %20DIRETORIA%20ADM%20FINANCEIRA                    |                 |                 |
+| 2025-10-04 11:27:49       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 5/152...             | system          | information     |
+| 2025-10-04 11:28:10       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 41775358   |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:28:13       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:28:14       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:28:14       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:28:15       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:28:16       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/DAF%20-         |                 |                 |
+|                           |                 |                                |                           | %20DIRETORIA%20ADM%20FINANCEIRA                    |                 |                 |
+| 2025-10-04 11:28:16       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 6/152 - (tentativa 1/2)           | system          | information     |
+| 2025-10-04 11:28:17       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 6/152                               | system          | information     |
+| 2025-10-04 11:28:17       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/EOF%20-         |                 |                 |
+|                           |                 |                                |                           | %20EXCELENCIA%20OPERACIONAL%20FIBRASA              |                 |                 |
+| 2025-10-04 11:28:23       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 6/152...             | system          | information     |
+| 2025-10-04 11:28:53       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Erro ao processar link 6/152: https://fibrasacombr | system          | failure         |
+|                           |                 |                                |                           | .sharepoint.com/sites/GED/DocumentosSolicitacoes/C |                 |                 |
+|                           |                 |                                |                           | orporativo%20-                                     |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/EOF%20-         |                 |                 |
+|                           |                 |                                |                           | %20EXCELENCIA%20OPERACIONAL%20FIBRASA -            |                 |                 |
+|                           |                 |                                |                           | Locator.click: Timeout 30000ms exceeded. Call log: |                 |                 |
+|                           |                 |                                |                           | - waiting for get_by_role("menuitem",              |                 |                 |
+|                           |                 |                                |                           | name="Baixar")  - LN 246 em sharepoint_acesso.py   |                 |                 |
+| 2025-10-04 11:28:54       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Tentativa 1/2 falhou para link 6/152               | system          | warning         |
+| 2025-10-04 11:28:54       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 6/152 - (tentativa 2/2)           | system          | information     |
+| 2025-10-04 11:28:55       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 6/152                               | system          | information     |
+| 2025-10-04 11:28:55       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/EOF%20-         |                 |                 |
+|                           |                 |                                |                           | %20EXCELENCIA%20OPERACIONAL%20FIBRASA              |                 |                 |
+| 2025-10-04 11:29:01       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 6/152...             | system          | information     |
+| 2025-10-04 11:29:31       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Erro ao processar link 6/152: https://fibrasacombr | system          | failure         |
+|                           |                 |                                |                           | .sharepoint.com/sites/GED/DocumentosSolicitacoes/C |                 |                 |
+|                           |                 |                                |                           | orporativo%20-                                     |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/EOF%20-         |                 |                 |
+|                           |                 |                                |                           | %20EXCELENCIA%20OPERACIONAL%20FIBRASA -            |                 |                 |
+|                           |                 |                                |                           | Locator.click: Timeout 30000ms exceeded. Call log: |                 |                 |
+|                           |                 |                                |                           | - waiting for get_by_role("menuitem",              |                 |                 |
+|                           |                 |                                |                           | name="Baixar")  - LN 246 em sharepoint_acesso.py   |                 |                 |
+| 2025-10-04 11:29:32       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Tentativa 2/2 falhou para link 6/152               | system          | warning         |
+| 2025-10-04 11:29:32       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Link 6/152 ignorado após 2 falhas: https://fibrasa | system          | failure         |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/EOF%20-         |                 |                 |
+|                           |                 |                                |                           | %20EXCELENCIA%20OPERACIONAL%20FIBRASA - LN 175 em  |                 |                 |
+|                           |                 |                                |                           | sharepoint_acesso.py                               |                 |                 |
+| 2025-10-04 11:29:33       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 7/152 - (tentativa 1/2)           | system          | information     |
+| 2025-10-04 11:29:33       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 7/152                               | system          | information     |
+| 2025-10-04 11:29:34       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/GEPRO-          |                 |                 |
+|                           |                 |                                |                           | %20GER%C3%8ANCIA%20INDUSTRIAL                      |                 |                 |
+| 2025-10-04 11:29:36       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 7/152...             | system          | information     |
+| 2025-10-04 11:30:07       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Erro ao processar link 7/152: https://fibrasacombr | system          | failure         |
+|                           |                 |                                |                           | .sharepoint.com/sites/GED/DocumentosSolicitacoes/C |                 |                 |
+|                           |                 |                                |                           | orporativo%20-                                     |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/GEPRO-          |                 |                 |
+|                           |                 |                                |                           | %20GER%C3%8ANCIA%20INDUSTRIAL - Locator.click:     |                 |                 |
+|                           |                 |                                |                           | Timeout 30000ms exceeded. Call log:   - waiting    |                 |                 |
+|                           |                 |                                |                           | for get_by_role("menuitem", name="Baixar")  - LN   |                 |                 |
+|                           |                 |                                |                           | 246 em sharepoint_acesso.py                        |                 |                 |
+| 2025-10-04 11:30:07       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Tentativa 1/2 falhou para link 7/152               | system          | warning         |
+| 2025-10-04 11:30:08       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 7/152 - (tentativa 2/2)           | system          | information     |
+| 2025-10-04 11:30:08       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 7/152                               | system          | information     |
+| 2025-10-04 11:30:09       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/GEPRO-          |                 |                 |
+|                           |                 |                                |                           | %20GER%C3%8ANCIA%20INDUSTRIAL                      |                 |                 |
+| 2025-10-04 11:30:11       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 7/152...             | system          | information     |
+| 2025-10-04 11:30:42       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Erro ao processar link 7/152: https://fibrasacombr | system          | failure         |
+|                           |                 |                                |                           | .sharepoint.com/sites/GED/DocumentosSolicitacoes/C |                 |                 |
+|                           |                 |                                |                           | orporativo%20-                                     |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/GEPRO-          |                 |                 |
+|                           |                 |                                |                           | %20GER%C3%8ANCIA%20INDUSTRIAL - Locator.click:     |                 |                 |
+|                           |                 |                                |                           | Timeout 30000ms exceeded. Call log:   - waiting    |                 |                 |
+|                           |                 |                                |                           | for get_by_role("menuitem", name="Baixar")  - LN   |                 |                 |
+|                           |                 |                                |                           | 246 em sharepoint_acesso.py                        |                 |                 |
+| 2025-10-04 11:30:42       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Tentativa 2/2 falhou para link 7/152               | system          | warning         |
+| 2025-10-04 11:30:43       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Link 7/152 ignorado após 2 falhas: https://fibrasa | system          | failure         |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/GEPRO-          |                 |                 |
+|                           |                 |                                |                           | %20GER%C3%8ANCIA%20INDUSTRIAL - LN 175 em          |                 |                 |
+|                           |                 |                                |                           | sharepoint_acesso.py                               |                 |                 |
+| 2025-10-04 11:30:43       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 8/152 - (tentativa 1/2)           | system          | information     |
+| 2025-10-04 11:30:44       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 8/152                               | system          | information     |
+| 2025-10-04 11:30:44       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/PMO%20-         |                 |                 |
+|                           |                 |                                |                           | %20PROJECT%20MANAGEMENT%20OFFICE                   |                 |                 |
+| 2025-10-04 11:30:52       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 8/152...             | system          | information     |
+| 2025-10-04 11:30:54       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 633917     |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:30:54       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:30:55       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:30:55       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:30:56       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:30:57       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/PMO%20-         |                 |                 |
+|                           |                 |                                |                           | %20PROJECT%20MANAGEMENT%20OFFICE                   |                 |                 |
+| 2025-10-04 11:30:57       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 9/152 - (tentativa 1/2)           | system          | information     |
+| 2025-10-04 11:30:58       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 9/152                               | system          | information     |
+| 2025-10-04 11:30:58       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEART%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ARTES%20GR%C3%81FICAS              |                 |                 |
+| 2025-10-04 11:31:06       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 9/152...             | system          | information     |
+| 2025-10-04 11:31:08       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 3681732    |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:31:08       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:31:09       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:31:09       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:31:10       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:31:11       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEART%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ARTES%20GR%C3%81FICAS              |                 |                 |
+| 2025-10-04 11:31:11       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 10/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:31:12       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 10/152                              | system          | information     |
+| 2025-10-04 11:31:12       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SECOM%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20COMERCIAL                               |                 |                 |
+| 2025-10-04 11:31:15       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 10/152...            | system          | information     |
+| 2025-10-04 11:31:21       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 5443146    |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:31:22       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:31:22       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:31:23       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:31:23       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:31:24       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SECOM%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20COMERCIAL                               |                 |                 |
+| 2025-10-04 11:31:25       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 11/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:31:25       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 11/152                              | system          | information     |
+| 2025-10-04 11:31:26       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEDES%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DESENVOLVIMENTO                    |                 |                 |
+| 2025-10-04 11:31:29       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 11/152...            | system          | information     |
+| 2025-10-04 11:31:33       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 5915118    |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:31:34       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:31:34       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:31:35       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:31:35       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:31:36       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEDES%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DESENVOLVIMENTO                    |                 |                 |
+| 2025-10-04 11:31:37       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 12/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:31:37       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 12/152                              | system          | information     |
+| 2025-10-04 11:31:38       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEDVP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DIRETORIA%20DA%20VICE%20PRESID%C3% |                 |                 |
+|                           |                 |                                |                           | 8ANCIA                                             |                 |                 |
+| 2025-10-04 11:31:40       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 12/152...            | system          | information     |
+| 2025-10-04 11:32:11       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Erro ao processar link 12/152: https://fibrasacomb | system          | failure         |
+|                           |                 |                                |                           | r.sharepoint.com/sites/GED/DocumentosSolicitacoes/ |                 |                 |
+|                           |                 |                                |                           | Corporativo%20-                                    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEDVP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DIRETORIA%20DA%20VICE%20PRESID%C3% |                 |                 |
+|                           |                 |                                |                           | 8ANCIA - Locator.click: Timeout 30000ms exceeded.  |                 |                 |
+|                           |                 |                                |                           | Call log:   - waiting for get_by_role("menuitem",  |                 |                 |
+|                           |                 |                                |                           | name="Baixar")  - LN 246 em sharepoint_acesso.py   |                 |                 |
+| 2025-10-04 11:32:11       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Tentativa 1/2 falhou para link 12/152              | system          | warning         |
+| 2025-10-04 11:32:12       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 12/152 - (tentativa 2/2)          | system          | information     |
+| 2025-10-04 11:32:12       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 12/152                              | system          | information     |
+| 2025-10-04 11:32:13       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEDVP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DIRETORIA%20DA%20VICE%20PRESID%C3% |                 |                 |
+|                           |                 |                                |                           | 8ANCIA                                             |                 |                 |
+| 2025-10-04 11:32:19       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 12/152...            | system          | information     |
+| 2025-10-04 11:32:50       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Erro ao processar link 12/152: https://fibrasacomb | system          | failure         |
+|                           |                 |                                |                           | r.sharepoint.com/sites/GED/DocumentosSolicitacoes/ |                 |                 |
+|                           |                 |                                |                           | Corporativo%20-                                    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEDVP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DIRETORIA%20DA%20VICE%20PRESID%C3% |                 |                 |
+|                           |                 |                                |                           | 8ANCIA - Locator.click: Timeout 30000ms exceeded.  |                 |                 |
+|                           |                 |                                |                           | Call log:   - waiting for get_by_role("menuitem",  |                 |                 |
+|                           |                 |                                |                           | name="Baixar")  - LN 246 em sharepoint_acesso.py   |                 |                 |
+| 2025-10-04 11:32:50       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Tentativa 2/2 falhou para link 12/152              | system          | warning         |
+| 2025-10-04 11:32:51       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Link 12/152 ignorado após 2 falhas: https://fibras | system          | failure         |
+|                           |                 |                                |                           | acombr.sharepoint.com/sites/GED/DocumentosSolicita |                 |                 |
+|                           |                 |                                |                           | coes/Corporativo%20-                               |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEDVP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DIRETORIA%20DA%20VICE%20PRESID%C3% |                 |                 |
+|                           |                 |                                |                           | 8ANCIA - LN 175 em sharepoint_acesso.py            |                 |                 |
+| 2025-10-04 11:32:51       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 13/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:32:52       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 13/152                              | system          | information     |
+| 2025-10-04 11:32:52       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEENG%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ENG.%20PROCESSO                    |                 |                 |
+| 2025-10-04 11:33:02       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 13/152...            | system          | information     |
+| 2025-10-04 11:33:21       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 54977024   |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:33:23       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:33:23       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:33:24       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:33:24       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:33:25       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEENG%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ENG.%20PROCESSO                    |                 |                 |
+| 2025-10-04 11:33:26       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 14/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:33:26       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 14/152                              | system          | information     |
+| 2025-10-04 11:33:27       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEEXP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXPEDICAO                          |                 |                 |
+| 2025-10-04 11:33:30       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 14/152...            | system          | information     |
+| 2025-10-04 11:33:32       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 2462044    |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:33:33       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:33:33       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:33:34       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:33:34       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:33:35       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEEXP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXPEDICAO                          |                 |                 |
+| 2025-10-04 11:33:36       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 15/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:33:36       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 15/152                              | system          | information     |
+| 2025-10-04 11:33:37       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEFER%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FERRAMENTARIA                      |                 |                 |
+| 2025-10-04 11:33:44       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 15/152...            | system          | information     |
+| 2025-10-04 11:33:49       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 14104159   |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:33:49       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:33:50       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:33:50       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:33:51       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:33:52       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEFER%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FERRAMENTARIA                      |                 |                 |
+| 2025-10-04 11:33:52       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 16/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:33:53       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 16/152                              | system          | information     |
+| 2025-10-04 11:33:53       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEGRC%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20GEST%C3%83O%20DE%20RISCO%20E%20COM |                 |                 |
+|                           |                 |                                |                           | PLIANCE                                            |                 |                 |
+| 2025-10-04 11:34:00       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 16/152...            | system          | information     |
+| 2025-10-04 11:34:01       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 732860     |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:34:02       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:34:02       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:34:03       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:34:03       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:34:04       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEGRC%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20GEST%C3%83O%20DE%20RISCO%20E%20COM |                 |                 |
+|                           |                 |                                |                           | PLIANCE                                            |                 |                 |
+| 2025-10-04 11:34:05       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 17/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:34:05       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 17/152                              | system          | information     |
+| 2025-10-04 11:34:06       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEIMP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20IMPRESSAO                          |                 |                 |
+| 2025-10-04 11:34:08       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 17/152...            | system          | information     |
+| 2025-10-04 11:34:10       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 38414      |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:34:10       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:34:11       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:34:11       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:34:12       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:34:13       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEIMP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20IMPRESSAO                          |                 |                 |
+| 2025-10-04 11:34:13       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 18/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:34:14       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 18/152                              | system          | information     |
+| 2025-10-04 11:34:14       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEINJ%20%E2%80% |                 |                 |
+|                           |                 |                                |                           | 93%20SETOR%20DE%20INJECAO                          |                 |                 |
+| 2025-10-04 11:34:22       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 18/152...            | system          | information     |
+| 2025-10-04 11:34:23       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 1546687    |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:34:24       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:34:24       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:34:25       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:34:25       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:34:26       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEINJ%20%E2%80% |                 |                 |
+|                           |                 |                                |                           | 93%20SETOR%20DE%20INJECAO                          |                 |                 |
+| 2025-10-04 11:34:27       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 19/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:34:27       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 19/152                              | system          | information     |
+| 2025-10-04 11:34:28       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEMAN%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MANUTENCAO                         |                 |                 |
+| 2025-10-04 11:34:34       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 19/152...            | system          | information     |
+| 2025-10-04 11:34:36       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 1700       |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:34:37       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:34:37       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:34:38       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:34:38       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:34:39       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEMAN%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MANUTENCAO                         |                 |                 |
+| 2025-10-04 11:34:40       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 20/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:34:40       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 20/152                              | system          | information     |
+| 2025-10-04 11:34:41       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPAT%20%E2%80% |                 |                 |
+|                           |                 |                                |                           | 93%20SETOR%20DE%20ASSISTENCIA%20TECNICA            |                 |                 |
+| 2025-10-04 11:34:48       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 20/152...            | system          | information     |
+| 2025-10-04 11:34:51       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 4171925    |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:34:51       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:34:52       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:34:52       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:34:53       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:34:54       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPAT%20%E2%80% |                 |                 |
+|                           |                 |                                |                           | 93%20SETOR%20DE%20ASSISTENCIA%20TECNICA            |                 |                 |
+| 2025-10-04 11:34:54       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 21/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:34:55       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 21/152                              | system          | information     |
+| 2025-10-04 11:34:55       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPCP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PLANEJAMENTO                       |                 |                 |
+| 2025-10-04 11:34:58       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 21/152...            | system          | information     |
+| 2025-10-04 11:35:01       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 1652141    |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:35:05       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:35:06       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:35:06       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:35:07       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:35:08       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPCP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PLANEJAMENTO                       |                 |                 |
+| 2025-10-04 11:35:08       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 22/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:35:09       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 22/152                              | system          | information     |
+| 2025-10-04 11:35:09       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPRC%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20PROCESSO%20DE%20PRODU%C3%87%C3%83O      |                 |                 |
+| 2025-10-04 11:35:12       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 22/152...            | system          | information     |
+| 2025-10-04 11:35:42       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Erro ao processar link 22/152: https://fibrasacomb | system          | failure         |
+|                           |                 |                                |                           | r.sharepoint.com/sites/GED/DocumentosSolicitacoes/ |                 |                 |
+|                           |                 |                                |                           | Corporativo%20-                                    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPRC%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20PROCESSO%20DE%20PRODU%C3%87%C3%83O -    |                 |                 |
+|                           |                 |                                |                           | Locator.click: Timeout 30000ms exceeded. Call log: |                 |                 |
+|                           |                 |                                |                           | - waiting for get_by_role("menuitem",              |                 |                 |
+|                           |                 |                                |                           | name="Baixar")  - LN 246 em sharepoint_acesso.py   |                 |                 |
+| 2025-10-04 11:35:43       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Tentativa 1/2 falhou para link 22/152              | system          | warning         |
+| 2025-10-04 11:35:43       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 22/152 - (tentativa 2/2)          | system          | information     |
+| 2025-10-04 11:35:44       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 22/152                              | system          | information     |
+| 2025-10-04 11:35:44       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPRC%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20PROCESSO%20DE%20PRODU%C3%87%C3%83O      |                 |                 |
+| 2025-10-04 11:35:47       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 22/152...            | system          | information     |
+| 2025-10-04 11:36:17       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Erro ao processar link 22/152: https://fibrasacomb | system          | failure         |
+|                           |                 |                                |                           | r.sharepoint.com/sites/GED/DocumentosSolicitacoes/ |                 |                 |
+|                           |                 |                                |                           | Corporativo%20-                                    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPRC%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20PROCESSO%20DE%20PRODU%C3%87%C3%83O -    |                 |                 |
+|                           |                 |                                |                           | Locator.click: Timeout 30000ms exceeded. Call log: |                 |                 |
+|                           |                 |                                |                           | - waiting for get_by_role("menuitem",              |                 |                 |
+|                           |                 |                                |                           | name="Baixar")  - LN 246 em sharepoint_acesso.py   |                 |                 |
+| 2025-10-04 11:36:18       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Tentativa 2/2 falhou para link 22/152              | system          | warning         |
+| 2025-10-04 11:36:18       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Link 22/152 ignorado após 2 falhas: https://fibras | system          | failure         |
+|                           |                 |                                |                           | acombr.sharepoint.com/sites/GED/DocumentosSolicita |                 |                 |
+|                           |                 |                                |                           | coes/Corporativo%20-                               |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPRC%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20PROCESSO%20DE%20PRODU%C3%87%C3%83O - LN |                 |                 |
+|                           |                 |                                |                           | 175 em sharepoint_acesso.py                        |                 |                 |
+| 2025-10-04 11:36:19       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 23/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:36:19       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 23/152                              | system          | information     |
+| 2025-10-04 11:36:20       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPRO%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PROJETOS%20E%20DESENVOLVIMENTO     |                 |                 |
+| 2025-10-04 11:36:23       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 23/152...            | system          | information     |
+| 2025-10-04 11:36:26       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_04-10-2025.zip (tamanho: 4084718    |                 |                 |
+|                           |                 |                                |                           | bytes)                                             |                 |                 |
+| 2025-10-04 11:36:27       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:36:27       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_04-10-2025.zip |                 |                 |
+| 2025-10-04 11:36:28       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | _processar_link concluída na pasta:                | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-04 11:36:28       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 11:36:29       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPRO%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PROJETOS%20E%20DESENVOLVIMENTO     |                 |                 |
+| 2025-10-04 11:36:30       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Processando link 24/152 - (tentativa 1/2)          | system          | information     |
+| 2025-10-04 11:36:30       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Acessando link 24/152                              | system          | information     |
+| 2025-10-04 11:36:31       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEQUA%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20QUALIDADE                          |                 |                 |
+| 2025-10-04 11:36:33       | IMP_DOC_QUALIS_ | _processar_link                | sharepoint_acesso.py      | Realizando o download do link 24/152...            | system          | information     |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+

@@ -1,0 +1,656 @@
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+|         TIMESTAMP         |       TASK      |            FUNCTION            |            FILE           |                       MESSAGE                      |   PROCESS_TYPE  |      STATUS     |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-04 09:50:58       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | dcConfig disponível: ['dbconnstr', 'dbschema',     | system          | information     |
+|                           |                 |                                |                           | 'projectname', 'folderlog', 'logtablename',        |                 |                 |
+|                           |                 |                                |                           | 'databasename', 'tabdocumentosged', 'url_inicial', |                 |                 |
+|                           |                 |                                |                           | 'url_api_processo', 'database']                    |                 |                 |
+| 2025-10-04 09:50:58       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | :::Processo de Conexão Iniciado:::                 | system          | information     |
+| 2025-10-04 09:51:00       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | Conectado com sucesso ao PostgreSQL: PostgreSQL    | system          | success         |
+|                           |                 |                                |                           | 17.6 on aarch64-unknown-linux-gnu, comp            |                 |                 |
+| 2025-10-04 09:51:00       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Não existe arquivo .xlsx na pasta                  | system          | critical        |
+|                           |                 |                                |                           | data\input\Capturados - LN 279 em                  |                 |                 |
+|                           |                 |                                |                           | planilha_processar.py                              |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-04 09:51:01       | IMP_DOC_QUALIS_ | Main                           | main.py                   | Planilha de Processamento não encontrada ou Vazia  | system          | critical        |
+|                           |                 |                                |                           | - LN 22 em main.py                                 |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-04 09:51:01       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | === TENTATIVA 1 DE 3 ===                           | system          | information     |
+| 2025-10-04 09:51:02       | IMP_DOC_QUALIS_ | _inicializar_navegador         | sharepoint_acesso.py      | Abrindo o navegador                                | system          | information     |
+| 2025-10-04 09:51:05       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-04 09:51:06       | IMP_DOC_QUALIS_ | _obter_links_do_banco          | tabela_documentos_ged.py  | Pesquisando pelo status: PENDENTE                  | system          | information     |
+| 2025-10-04 09:51:06       | IMP_DOC_QUALIS_ | _obter_links_do_banco          | tabela_documentos_ged.py  | 154 links obtidos do banco                         | system          | information     |
+| 2025-10-04 09:51:07       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/Documentos%20Compartilhados/2.Nordeste% |                 |                 |
+|                           |                 |                                |                           | 20-%20FINE/Publicados                              |                 |                 |
+| 2025-10-04 09:51:09       | IMP_DOC_QUALIS_ | _efetuar_login                 | sharepoint_acesso.py      | Efetuando login...                                 | system          | information     |
+| 2025-10-04 09:51:12       | IMP_DOC_QUALIS_ | _efetuar_login                 | sharepoint_acesso.py      | Login efetuado com sucesso!                        | system          | information     |
+| 2025-10-04 09:51:12       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados' / 154                          |                 |                 |
+| 2025-10-04 09:51:13       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEDVP-                        |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DIRETORIA%20DA%20VICE%20PRESID%C3% |                 |                 |
+|                           |                 |                                |                           | 8ANCIA' / 154                                      |                 |                 |
+| 2025-10-04 09:51:13       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEINF%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20INFORMATICA' / 154                 |                 |                 |
+| 2025-10-04 09:51:14       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEFIS%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20FISCAL' / 154                           |                 |                 |
+| 2025-10-04 09:51:14       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/EOF%20-         |                 |                 |
+|                           |                 |                                |                           | %20EXCELENCIA%20OPERACIONAL%20FIBRASA' / 154       |                 |                 |
+| 2025-10-04 09:51:15       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/GEPRO%20-                       |                 |                 |
+|                           |                 |                                |                           | %20GERENCIA%20DE%20PRODUCAO' / 154                 |                 |                 |
+| 2025-10-04 09:51:15       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/GEPRO-          |                 |                 |
+|                           |                 |                                |                           | %20GER%C3%8ANCIA%20INDUSTRIAL' / 154               |                 |                 |
+| 2025-10-04 09:51:16       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEDVP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DIRETORIA%20DA%20VICE%20PRESID%C3% |                 |                 |
+|                           |                 |                                |                           | 8ANCIA' / 154                                      |                 |                 |
+| 2025-10-04 09:51:16       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPRC%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20PROCESSO%20DE%20PRODU%C3%87%C3%83O' /   |                 |                 |
+|                           |                 |                                |                           | 154                                                |                 |                 |
+| 2025-10-04 09:51:17       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/EOF%20-                       |                 |                 |
+|                           |                 |                                |                           | %20EXCELENCIA%20OPERACIONAL%20FIBRASA' / 154       |                 |                 |
+| 2025-10-04 09:51:17       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/GEPRO%20-                     |                 |                 |
+|                           |                 |                                |                           | %20GERENCIA%20DE%20PRODUCAO' / 154                 |                 |                 |
+| 2025-10-04 09:51:18       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados' / 154                        |                 |                 |
+| 2025-10-04 09:51:18       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados' / 154               |                 |                 |
+| 2025-10-04 09:51:19       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados' / 154               |                 |                 |
+| 2025-10-04 09:51:19       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados' / 154                          |                 |                 |
+| 2025-10-04 09:51:20       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/PMO%20-         |                 |                 |
+|                           |                 |                                |                           | %20PROJECT%20MANAGEMENT%20OFFICE' / 154            |                 |                 |
+| 2025-10-04 09:51:20       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEART%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ARTES%20GR%C3%81FICAS' / 154       |                 |                 |
+| 2025-10-04 09:51:21       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SECOM%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20COMERCIAL' / 154                        |                 |                 |
+| 2025-10-04 09:51:21       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEDES%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DESENVOLVIMENTO' / 154             |                 |                 |
+| 2025-10-04 09:51:22       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEENG%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ENG.%20PROCESSO' / 154             |                 |                 |
+| 2025-10-04 09:51:22       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEEXP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXPEDICAO' / 154                   |                 |                 |
+| 2025-10-04 09:51:23       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEFER%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FERRAMENTARIA' / 154               |                 |                 |
+| 2025-10-04 09:51:23       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEGRC%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20GEST%C3%83O%20DE%20RISCO%20E%20COM |                 |                 |
+|                           |                 |                                |                           | PLIANCE' / 154                                     |                 |                 |
+| 2025-10-04 09:51:24       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEIMP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20IMPRESSAO' / 154                   |                 |                 |
+| 2025-10-04 09:51:24       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEINJ%20%E2%80% |                 |                 |
+|                           |                 |                                |                           | 93%20SETOR%20DE%20INJECAO' / 154                   |                 |                 |
+| 2025-10-04 09:51:25       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEMAN%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MANUTENCAO' / 154                  |                 |                 |
+| 2025-10-04 09:51:25       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPAT%20%E2%80% |                 |                 |
+|                           |                 |                                |                           | 93%20SETOR%20DE%20ASSISTENCIA%20TECNICA' / 154     |                 |                 |
+| 2025-10-04 09:51:26       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPCP%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PLANEJAMENTO' / 154                |                 |                 |
+| 2025-10-04 09:51:26       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEPRO%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PROJETOS%20E%20DESENVOLVIMENTO' /  |                 |                 |
+|                           |                 |                                |                           | 154                                                |                 |                 |
+| 2025-10-04 09:51:27       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SEQUA%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20QUALIDADE' / 154                   |                 |                 |
+| 2025-10-04 09:51:27       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SETER%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20TERMOFORMAGEM' / 154               |                 |                 |
+| 2025-10-04 09:51:28       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SETRU%20-       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXTRUSAO' / 154                    |                 |                 |
+| 2025-10-04 09:51:28       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/SSMA%20-        |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SEGURANCA,%20SAUDE%20E%20MEIO%20AM |                 |                 |
+|                           |                 |                                |                           | BIENTE' / 154                                      |                 |                 |
+| 2025-10-04 09:51:29       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/DAF%20-                       |                 |                 |
+|                           |                 |                                |                           | %20DIRETORIA%20ADM%20FINANCEIRA' / 154             |                 |                 |
+| 2025-10-04 09:51:29       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEPRC%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20PROCESSO%20DE%20PRODU%C3%87%C3%83O' /   |                 |                 |
+|                           |                 |                                |                           | 154                                                |                 |                 |
+| 2025-10-04 09:51:30       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEFIN%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FINANCAS' / 154                    |                 |                 |
+| 2025-10-04 09:51:30       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEART%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ARTES%20GR%C3%81FICAS' / 154       |                 |                 |
+| 2025-10-04 09:51:31       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SECOM%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20COMERCIAL' / 154                        |                 |                 |
+| 2025-10-04 09:51:31       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEDES%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DESENVOLVIMENTO' / 154             |                 |                 |
+| 2025-10-04 09:51:32       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEENG%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ENG.%20PROCESSO' / 154             |                 |                 |
+| 2025-10-04 09:51:32       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEEXP%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXPEDICAO' / 154                   |                 |                 |
+| 2025-10-04 09:51:32       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEFER%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FERRAMENTARIA' / 154               |                 |                 |
+| 2025-10-04 09:51:33       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEGRC-                        |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20GEST%C3%83O%20DE%20RISCO%20E%20COMPLIAN |                 |                 |
+|                           |                 |                                |                           | CE' / 154                                          |                 |                 |
+| 2025-10-04 09:51:33       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEIMP%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20IMPRESSAO' / 154                   |                 |                 |
+| 2025-10-04 09:51:34       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEINJ%20%E2%80%93%20SEKASE%20 |                 |                 |
+|                           |                 |                                |                           | %E2%80%93%20SETOR%20DE%20INJECAO' / 154            |                 |                 |
+| 2025-10-04 09:51:34       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEMAN%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MANUTENCAO' / 154                  |                 |                 |
+| 2025-10-04 09:51:35       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEPAT%20%E2%80%93%20SETOR%20D |                 |                 |
+|                           |                 |                                |                           | E%20ASSISTENCIA%20TECNICA' / 154                   |                 |                 |
+| 2025-10-04 09:51:35       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEPCP%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PLANEJAMENTO' / 154                |                 |                 |
+| 2025-10-04 09:51:36       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEPRO%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PROJETOS%20E%20DESENVOLVIMENTO' /  |                 |                 |
+|                           |                 |                                |                           | 154                                                |                 |                 |
+| 2025-10-04 09:51:36       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SEQUA%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20QUALIDADE' / 154                   |                 |                 |
+| 2025-10-04 09:51:37       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SETER%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20TERMOFORMAGEM' / 154               |                 |                 |
+| 2025-10-04 09:51:37       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SETRU%20-                     |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXTRUSAO' / 154                    |                 |                 |
+| 2025-10-04 09:51:38       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/SSMA%20-                      |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SEGURANCA,%20SAUDE%20E%20MEIO%20AM |                 |                 |
+|                           |                 |                                |                           | BIENTE' / 154                                      |                 |                 |
+| 2025-10-04 09:51:38       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/EOF%20-                         |                 |                 |
+|                           |                 |                                |                           | %20EXCELENCIA%20OPERACIONAL%20FIBRASA' / 154       |                 |                 |
+| 2025-10-04 09:51:39       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/GEI%20-                         |                 |                 |
+|                           |                 |                                |                           | %20GERENCIA%20INDUSTRIAL' / 154                    |                 |                 |
+| 2025-10-04 09:51:39       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/PMO%20-                         |                 |                 |
+|                           |                 |                                |                           | %20PROJECT%20MANAGEMENT%20OFFICE' / 154            |                 |                 |
+| 2025-10-04 09:51:40       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEART%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ARTES%20GR%C3%81FICAS' / 154       |                 |                 |
+| 2025-10-04 09:51:40       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SECOM%20-%20SETOR%20COMERCIAL'  |                 |                 |
+|                           |                 |                                |                           | / 154                                              |                 |                 |
+| 2025-10-04 09:51:41       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SECON%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20CONTABILIDADE' / 154               |                 |                 |
+| 2025-10-04 09:51:41       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEDES%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DESENVOLVIMENTO' / 154             |                 |                 |
+| 2025-10-04 09:51:42       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEENG%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ENG.%20PROCESSO' / 154             |                 |                 |
+| 2025-10-04 09:51:42       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEEXP%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXPEDICAO' / 154                   |                 |                 |
+| 2025-10-04 09:51:43       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEFER%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FERRAMENTARIA' / 154               |                 |                 |
+| 2025-10-04 09:51:43       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEFIS%20-%20SETOR%20FISCAL' /   |                 |                 |
+|                           |                 |                                |                           | 154                                                |                 |                 |
+| 2025-10-04 09:51:44       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SELAM%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20LAMINACAO' / 154                   |                 |                 |
+| 2025-10-04 09:51:44       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SELOG%20-%20SETOR%20LOGISTICO'  |                 |                 |
+|                           |                 |                                |                           | / 154                                              |                 |                 |
+| 2025-10-04 09:51:45       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEMAN%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MANUTENCAO' / 154                  |                 |                 |
+| 2025-10-04 09:51:45       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEMAT%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MATERIAIS' / 154                   |                 |                 |
+| 2025-10-04 09:51:46       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEORC%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20CUSTOS%20E%20ORCAMENTO' / 154      |                 |                 |
+| 2025-10-04 09:51:46       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEPAT%20%E2%80%93%20SETOR%20DE% |                 |                 |
+|                           |                 |                                |                           | 20ASSISTENCIA%20TECNICA' / 154                     |                 |                 |
+| 2025-10-04 09:51:47       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEPCP%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PLANEJAMENTO' / 154                |                 |                 |
+| 2025-10-04 09:51:47       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEPRO%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PROJETOS' / 154                    |                 |                 |
+| 2025-10-04 09:51:48       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEQUA%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20QUALIDADE' / 154                   |                 |                 |
+| 2025-10-04 09:51:48       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SERET%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20RELACOES%20TRABALHISTAS' / 154     |                 |                 |
+| 2025-10-04 09:51:49       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SESUP%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SUPRIMENTOS' / 154                 |                 |                 |
+| 2025-10-04 09:51:49       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SETER%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20TERMOFORMAGEM' / 154               |                 |                 |
+| 2025-10-04 09:51:50       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SETRU%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXTRUSAO' / 154                    |                 |                 |
+| 2025-10-04 09:51:50       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SSMA%20-                        |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SEGURANCA,%20SAUDE%20E%20MEIO%20AM |                 |                 |
+|                           |                 |                                |                           | BIENTE' / 154                                      |                 |                 |
+| 2025-10-04 09:51:51       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/EOF%20-              |                 |                 |
+|                           |                 |                                |                           | %20EXCELENCIA%20OPERACIONAL%20FIBRASA' / 154       |                 |                 |
+| 2025-10-04 09:51:51       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/GEI%20-              |                 |                 |
+|                           |                 |                                |                           | %20GERENCIA%20INDUSTRIAL' / 154                    |                 |                 |
+| 2025-10-04 09:51:52       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/PMO%20-              |                 |                 |
+|                           |                 |                                |                           | %20PROJECT%20MANAGEMENT%20OFFICE' / 154            |                 |                 |
+| 2025-10-04 09:51:52       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEART%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ARTES%20GR%C3%81FICAS' / 154       |                 |                 |
+| 2025-10-04 09:51:53       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SECOM%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20COMERCIAL' / 154                        |                 |                 |
+| 2025-10-04 09:51:53       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SECON%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20CONTABILIDADE' / 154               |                 |                 |
+| 2025-10-04 09:51:53       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEDES%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DESENVOLVIMENTO' / 154             |                 |                 |
+| 2025-10-04 09:51:54       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEENG%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ENG.%20PROCESSO' / 154             |                 |                 |
+| 2025-10-04 09:51:55       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEEXP%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXPEDICAO' / 154                   |                 |                 |
+| 2025-10-04 09:51:55       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEFER%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FERRAMENTARIA' / 154               |                 |                 |
+| 2025-10-04 09:51:55       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEFIN%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FINANCAS' / 154                    |                 |                 |
+| 2025-10-04 09:51:56       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEFIS%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20FISCAL' / 154                           |                 |                 |
+| 2025-10-04 09:51:56       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEIMP%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20IMPRESSAO' / 154                   |                 |                 |
+| 2025-10-04 09:51:57       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEINF%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20INFORMATICA' / 154                 |                 |                 |
+| 2025-10-04 09:51:57       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEINJ%20%E2%80%93%20 |                 |                 |
+|                           |                 |                                |                           | SEKASE%20%E2%80%93%20SETOR%20DE%20INJECAO%20E%20SE |                 |                 |
+|                           |                 |                                |                           | TOR%20DA%20KASE' / 154                             |                 |                 |
+| 2025-10-04 09:51:58       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SELAM%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20LAMINACAO' / 154                   |                 |                 |
+| 2025-10-04 09:51:58       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SERET%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20RELACOES%20TRABALHISTAS' / 154     |                 |                 |
+| 2025-10-04 09:51:59       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEMAN%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MANUTENCAO' / 154                  |                 |                 |
+| 2025-10-04 09:51:59       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEMAT%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MATERIAIS' / 154                   |                 |                 |
+| 2025-10-04 09:52:00       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEORC%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20CUSTOS%20E%20ORCAMENTO' / 154      |                 |                 |
+| 2025-10-04 09:52:00       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEPAT%20%E2%80%93%20 |                 |                 |
+|                           |                 |                                |                           | SETOR%20DE%20ASSISTENCIA%20TECNICA' / 154          |                 |                 |
+| 2025-10-04 09:52:01       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEPCP%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PLANEJAMENTO' / 154                |                 |                 |
+| 2025-10-04 09:52:01       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEPRO%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PROJETOS%20E%20DESENVOLVIMENTO' /  |                 |                 |
+|                           |                 |                                |                           | 154                                                |                 |                 |
+| 2025-10-04 09:52:02       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SEQUA%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20QUALIDADE' / 154                   |                 |                 |
+| 2025-10-04 09:52:02       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SERET%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20RELACOES%20TRABALHISTAS' / 154     |                 |                 |
+| 2025-10-04 09:52:03       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SESUP%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SUPRIMENTOS' / 154                 |                 |                 |
+| 2025-10-04 09:52:03       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SETER%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20TERMOFORMAGEM' / 154               |                 |                 |
+| 2025-10-04 09:52:04       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SETRU%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXTRUSAO' / 154                    |                 |                 |
+| 2025-10-04 09:52:04       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SSMA%20-             |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SEGURANCA,%20SAUDE%20E%20MEIO%20AM |                 |                 |
+|                           |                 |                                |                           | BIENTE' / 154                                      |                 |                 |
+| 2025-10-04 09:52:05       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/GAF%20-              |                 |                 |
+|                           |                 |                                |                           | %20GERENCIA%20ADM%20FINANCEIRA' / 154              |                 |                 |
+| 2025-10-04 09:52:05       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/GEPRO%20-            |                 |                 |
+|                           |                 |                                |                           | %20GERENCIA%20DE%20PRODUCAO' / 154                 |                 |                 |
+| 2025-10-04 09:52:06       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEART%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ARTES%20GR%C3%81FICAS' / 154       |                 |                 |
+| 2025-10-04 09:52:06       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEDEC%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DECORA%C3%87%C3%83O' / 154         |                 |                 |
+| 2025-10-04 09:52:07       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEDES%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DESENVOLVIMENTO' / 154             |                 |                 |
+| 2025-10-04 09:52:07       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEENG%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ENG.%20PROCESSO' / 154             |                 |                 |
+| 2025-10-04 09:52:08       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEEXP%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXPEDICAO' / 154                   |                 |                 |
+| 2025-10-04 09:52:08       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEFER%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FERRAMENTARIA' / 154               |                 |                 |
+| 2025-10-04 09:52:09       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEIMP%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20IMPRESSAO' / 154                   |                 |                 |
+| 2025-10-04 09:52:09       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEINF%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20INFORMATICA' / 154                 |                 |                 |
+| 2025-10-04 09:52:10       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEINJ%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20INJE%C3%87%C3%83O' / 154           |                 |                 |
+| 2025-10-04 09:52:10       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SELIMP-              |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20LIMPEZA' / 154                     |                 |                 |
+| 2025-10-04 09:52:11       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEMAN%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MANUTENCAO' / 154                  |                 |                 |
+| 2025-10-04 09:52:11       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEMAT%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MATERIAIS' / 154                   |                 |                 |
+| 2025-10-04 09:52:12       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEPRO%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PROJETOS' / 154                    |                 |                 |
+| 2025-10-04 09:52:12       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SEQUA%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20QUALIDADE' / 154                   |                 |                 |
+| 2025-10-04 09:52:13       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SESUP%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SUPRIMENTOS' / 154                 |                 |                 |
+| 2025-10-04 09:52:13       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SEFIS%20-%20SETOR%20FISCAL' /   |                 |                 |
+|                           |                 |                                |                           | 154                                                |                 |                 |
+| 2025-10-04 09:52:14       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados' / 154          |                 |                 |
+| 2025-10-04 09:52:14       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Corporativo%20-           |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados/DAF%20-         |                 |                 |
+|                           |                 |                                |                           | %20DIRETORIA%20ADM%20FINANCEIRA' / 154             |                 |                 |
+| 2025-10-04 09:52:15       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/1.Corporativo%20-    |                 |                 |
+|                           |                 |                                |                           | %20FICORP/Publicados/PMO%20-                       |                 |                 |
+|                           |                 |                                |                           | %20PROJECT%20MANAGEMENT%20OFFICE' / 154            |                 |                 |
+| 2025-10-04 09:52:15       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEIMP%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20IMPRESSAO' / 154                   |                 |                 |
+| 2025-10-04 09:52:16       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/2.Nordeste%20-       |                 |                 |
+|                           |                 |                                |                           | %20FINE/Publicados/SEINJ%20%E2%80%93%20SEKASE%20%E |                 |                 |
+|                           |                 |                                |                           | 2%80%93%20SETOR%20DE%20INJECAO%20E%20SETOR%20DA%20 |                 |                 |
+|                           |                 |                                |                           | KASE' / 154                                        |                 |                 |
+| 2025-10-04 09:52:16       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Nordeste%20-              |                 |                 |
+|                           |                 |                                |                           | %20FINE/N%C3%A3o%20Publicados/SELOG%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20LOGISTICO' / 154                        |                 |                 |
+| 2025-10-04 09:52:17       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SETER%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20TERMOFORMAGEM' / 154               |                 |                 |
+| 2025-10-04 09:52:17       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SETRU%20-            |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXTRUSAO' / 154                    |                 |                 |
+| 2025-10-04 09:52:17       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/DocumentosSolicitacoes/Sudeste%20-               |                 |                 |
+|                           |                 |                                |                           | %20FIES/N%C3%A3o%20Publicados/SSMA%20-             |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SEGURANCA,%20SAUDE%20E%20MEIO%20AM |                 |                 |
+|                           |                 |                                |                           | BIENTE' / 154                                      |                 |                 |
+| 2025-10-04 09:52:18       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/GAF%20-                         |                 |                 |
+|                           |                 |                                |                           | %20GERENCIA%20ADM%20FINANCEIRA' / 154              |                 |                 |
+| 2025-10-04 09:52:18       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SEART%20-%20SETOR%20DE%20ARTES' |                 |                 |
+|                           |                 |                                |                           | / 154                                              |                 |                 |
+| 2025-10-04 09:52:19       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SEDEC%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DECORA%C3%87%C3%83O' / 154         |                 |                 |
+| 2025-10-04 09:52:19       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SEDES%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20DESENVOLVIMENTO' / 154             |                 |                 |
+| 2025-10-04 09:52:20       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SEENG%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20ENG.%20PROCESSO' / 154             |                 |                 |
+| 2025-10-04 09:52:20       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SEEXP%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXPEDICAO' / 154                   |                 |                 |
+| 2025-10-04 09:52:21       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SEFER%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20FERRAMENTARIA' / 154               |                 |                 |
+| 2025-10-04 09:52:21       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SEIMP%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20IMPRESSAO' / 154                   |                 |                 |
+| 2025-10-04 09:52:22       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SEINF%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20INFORMATICA' / 154                 |                 |                 |
+| 2025-10-04 09:52:22       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SEINJ%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20INJE%C3%87%C3%83O' / 154           |                 |                 |
+| 2025-10-04 09:52:23       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SELIMP-%20SETOR%20DE%20LIMPEZA' |                 |                 |
+|                           |                 |                                |                           | / 154                                              |                 |                 |
+| 2025-10-04 09:52:23       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SEMAN%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MANUTENCAO' / 154                  |                 |                 |
+| 2025-10-04 09:52:24       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SEMAT%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20MATERIAIS' / 154                   |                 |                 |
+| 2025-10-04 09:52:24       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SEPRO%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20PROJETOS' / 154                    |                 |                 |
+| 2025-10-04 09:52:25       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SEQUA%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20QUALIDADE' / 154                   |                 |                 |
+| 2025-10-04 09:52:25       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SERET%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20RELACOES%20TRABALHISTAS' / 154     |                 |                 |
+| 2025-10-04 09:52:26       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SESUP%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SUPRIMENTOS' / 154                 |                 |                 |
+| 2025-10-04 09:52:26       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SETER%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20TERMOFORMAGEM' / 154               |                 |                 |
+| 2025-10-04 09:52:27       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SETRU%20-                       |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20EXTRUSAO' / 154                    |                 |                 |
+| 2025-10-04 09:52:27       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | link='https://fibrasacombr.sharepoint.com/sites/GE | system          | information     |
+|                           |                 |                                |                           | D/Documentos%20Compartilhados/3.Sudeste%20-        |                 |                 |
+|                           |                 |                                |                           | %20FIES/Publicados/SSMA%20-                        |                 |                 |
+|                           |                 |                                |                           | %20SETOR%20DE%20SEGURANCA,%20SAUDE%20E%20MEIO%20AM |                 |                 |
+|                           |                 |                                |                           | BIENTE' / 154                                      |                 |                 |
+| 2025-10-04 09:52:28       | IMP_DOC_QUALIS_ | _finalizar_navegador           | sharepoint_acesso.py      | Recursos finalizados com sucesso                   | system          | information     |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+

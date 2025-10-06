@@ -1,0 +1,54 @@
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+|         TIMESTAMP         |       TASK      |            FUNCTION            |            FILE           |                       MESSAGE                      |   PROCESS_TYPE  |      STATUS     |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-03 15:27:05       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | dcConfig disponível: ['dbconnstr', 'dbschema',     | system          | information     |
+|                           |                 |                                |                           | 'projectname', 'folderlog', 'logtablename',        |                 |                 |
+|                           |                 |                                |                           | 'databasename', 'tabdocumentosged', 'url_inicial', |                 |                 |
+|                           |                 |                                |                           | 'url_api_processo', 'database']                    |                 |                 |
+| 2025-10-03 15:27:06       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | :::Processo de Conexão Iniciado:::                 | system          | information     |
+| 2025-10-03 15:27:07       | IMP_DOC_QUALIS_ | connect                        | databasesrc.py            | Conectado com sucesso ao PostgreSQL: PostgreSQL    | system          | success         |
+|                           |                 |                                |                           | 17.6 on aarch64-unknown-linux-gnu, comp            |                 |                 |
+| 2025-10-03 15:27:08       | IMP_DOC_QUALIS_ | verifica_arq_existe            | planilha_processar.py     | Não existe arquivo .xlsx na pasta                  | system          | critical        |
+|                           |                 |                                |                           | data\input\Capturados - LN 279 em                  |                 |                 |
+|                           |                 |                                |                           | planilha_processar.py                              |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-03 15:27:08       | IMP_DOC_QUALIS_ | Main                           | main.py                   | Planilha de Processamento não encontrada ou Vazia  | system          | critical        |
+|                           |                 |                                |                           | - LN 22 em main.py                                 |                 |                 |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
+| 2025-10-03 15:27:09       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | === TENTATIVA 1 DE 3 ===                           | system          | information     |
+| 2025-10-03 15:27:09       | IMP_DOC_QUALIS_ | _inicializar_navegador         | sharepoint_acesso.py      | Abrindo o navegador                                | system          | information     |
+| 2025-10-03 15:27:13       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | sharepoint_acesso.py      | db_manager está conectado                          | system          | information     |
+| 2025-10-03 15:27:13       | IMP_DOC_QUALIS_ | _obter_links_do_banco          | sharepoint_acesso.py      | Pesquisando pelo status: PENDENTE                  | system          | information     |
+| 2025-10-03 15:27:14       | IMP_DOC_QUALIS_ | _obter_links_do_banco          | sharepoint_acesso.py      | 1 links obtidos do banco                           | system          | information     |
+| 2025-10-03 15:27:14       | IMP_DOC_QUALIS_ | _acessar_sharepoint            | sharepoint_acesso.py      | Acessando URL: https://fibrasacombr.sharepoint.com | system          | information     |
+|                           |                 |                                |                           | /sites/GED/DocumentosSolicitacoes/Corporativo%20-  |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados                 |                 |                 |
+| 2025-10-03 15:27:16       | IMP_DOC_QUALIS_ | _efetuar_login                 | sharepoint_acesso.py      | Efetuando login...                                 | system          | information     |
+| 2025-10-03 15:27:19       | IMP_DOC_QUALIS_ | _efetuar_login                 | sharepoint_acesso.py      | Login efetuado com sucesso!                        | system          | information     |
+| 2025-10-03 15:27:24       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Realizando o download...                           | system          | information     |
+| 2025-10-03 15:32:03       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Download salvo em: data\downloads\fibrasacombr-    | system          | information     |
+|                           |                 |                                |                           | sharepoint-com-sites-ged-documentossolicitacoes-co |                 |                 |
+|                           |                 |                                |                           | rporativo-20-20ficorp-01-n-c3-a3o-                 |                 |                 |
+|                           |                 |                                |                           | 20p\OneDrive_1_03-10-2025.zip                      |                 |                 |
+| 2025-10-03 15:32:24       | IMP_DOC_QUALIS_ | extrair_zip                    | extrair_zip.py            | Arquivo data\downloads\fibrasacombr-sharepoint-    | system          | information     |
+|                           |                 |                                |                           | com-sites-ged-documentossolicitacoes-corporativo-  |                 |                 |
+|                           |                 |                                |                           | 20-20ficorp-01-n-c3-a3o-20p\OneDrive_1_03-10-      |                 |                 |
+|                           |                 |                                |                           | 2025.zip extraído para                             |                 |                 |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-03 15:32:24       | IMP_DOC_QUALIS_ | extrair_zips_em_pasta          | extrair_zip.py            | ZIP removido após extração:                        | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-corporativo-20-         |                 |                 |
+|                           |                 |                                |                           | 20ficorp-01-n-c3-a3o-20p\OneDrive_1_03-10-2025.zip |                 |                 |
+| 2025-10-03 15:32:25       | IMP_DOC_QUALIS_ | executar_acesso_sharepoint     | sharepoint_acesso.py      | Extração concluída na pasta:                       | system          | information     |
+|                           |                 |                                |                           | data\downloads\fibrasacombr-sharepoint-com-sites-  |                 |                 |
+|                           |                 |                                |                           | ged-documentossolicitacoes-                        |                 |                 |
+|                           |                 |                                |                           | corporativo-20-20ficorp-01-n-c3-a3o-20p            |                 |                 |
+| 2025-10-03 15:32:25       | IMP_DOC_QUALIS_ | confere_conexao_do_banco       | tabela_documentos_ged.py  | db_manager está conectado                          | system          | information     |
+| 2025-10-03 15:32:26       | IMP_DOC_QUALIS_ | atualizar_status               | tabela_documentos_ged.py  | Status atualizado para PROCESSADO: https://fibrasa | system          | information     |
+|                           |                 |                                |                           | combr.sharepoint.com/sites/GED/DocumentosSolicitac |                 |                 |
+|                           |                 |                                |                           | oes/Corporativo%20-                                |                 |                 |
+|                           |                 |                                |                           | %20FICORP/01.N%C3%A3o%20Publicados                 |                 |                 |
+| 2025-10-03 15:32:30       | IMP_DOC_QUALIS_ | _finalizar_navegador           | sharepoint_acesso.py      | Recursos finalizados com sucesso                   | system          | information     |
++---------------------------+-----------------+--------------------------------+---------------------------+----------------------------------------------------+-----------------+-----------------+
